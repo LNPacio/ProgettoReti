@@ -20,7 +20,7 @@
     
   </head>
 
-  <body onload="updateDate()">
+  <body onload="initMap()">
     <header>
       <!-- Fixed navbar -->
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -52,8 +52,8 @@
         <div class = "div1">
           <!--Selezione del Paese-->
           <form class="form-inline mt-2 mt-md-0" name = "form_citta">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search City" aria-label="Search">
-            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+            <input class="form-control mr-sm-2" type="textbox" id = "address" placeholder="Search City" aria-label="Search">
+            <button class="btn btn-outline-primary my-2 my-sm-0" id = "bottone_città" type="button" onclick="codeAddress()">Search</button>
           </form>
           <!--Selezione della data-->
           <form class="form-inline mt-2 mt-md-0" name = "form_data">
