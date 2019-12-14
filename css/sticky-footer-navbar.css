@@ -58,3 +58,10 @@ code {
 .clock{
   color: white;
 }
+.map{
+  width: 50%;
+  height: 88%;
+  position: relative;
+  top: 20px;
+  left: 50%;
+}

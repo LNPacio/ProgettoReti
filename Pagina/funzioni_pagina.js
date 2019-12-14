@@ -36,5 +36,12 @@ if(mese == 11) mese = "Dicembre";
 var ref=document.getElementById('clock');
 ref.innerHTML=giorno+ " " + date + " " + mese + " " + year + " " + ora+":"+minuti+":"+secondi;
 window.setTimeout("updateDate()",1000);
+}
 
-    }
+var map;
+function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: 42, lng: 13},
+    zoom: 5 
+    });
+}

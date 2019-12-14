@@ -1,12 +1,12 @@
-<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
-    <script type="text/javascript" lang="javascript" src="data.js"></script>
+    <script type="text/javascript" lang="javascript" src="funzioni_pagina.js"></script>
 
     <title>Nome_Progetto</title>
 
@@ -15,10 +15,12 @@
 
     <!-- Custom styles for this template -->
     <link href="../css/sticky-footer-navbar.css" rel="stylesheet">
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAA9ofEZL32oxtYHyJBuYUK1cGXbszv2l8&callback=initMap" async defer></script>
+    
   </head>
 
-  <body onLoad="updateDate()">
-
+  <body onload="updateDate()">
     <header>
       <!-- Fixed navbar -->
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -41,46 +43,31 @@
           </ul>
           <div class="clock" id="clock"></div>
         </div>
-       
       </nav>
     </header>
 
-    <!-- Begin page content -->
-    <main role="main" class="container">
+  <!-- Begin page content -->
+  <main role="main" class="container">
       <div class="div0">
-
         <div class = "div1">
-            
+          <!--Selezione del Paese-->
           <form class="form-inline mt-2 mt-md-0" name = "form_citta">
             <input class="form-control mr-sm-2" type="text" placeholder="Search City" aria-label="Search">
             <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
           </form>
-
+          <!--Selezione della data-->
           <form class="form-inline mt-2 mt-md-0" name = "form_data">
             <h5 class="navbar-brand">Select data</h5>
             <input type="date" name="date"></input>
           </form>
         </div>
+        <!--Mappa-->
+        <div class = "map" id="map"></div>
 
-      <div class = "div2">
-        <form class="form-sign" method="POST" name="form_login">
-          <h1 class="h3 mb-3 font-weight-normal">Nome_Progetto</h1>
-          <input type="email" name="inputEmail" class="form-control" placeholder="Email address" required autofocus/><br>
-          <input type="password" name="inputPassword" class="form-control" placeholder="Password" required autofocus/><br>
-          <button class="btn btn-sm btn btn-outline-primary btn-block" type="submit" name = "loginButton">Sign in</button> <br>
-          <a href="../PaginaRegistrazione/registrazione.html">Sign up</a>  
-        </form>
       </div>
-      
-    </div>
-
     </main>
 
-    <footer class="footer">
-      <div class="container">
-        <span class="text-muted">Place sticky footer content here.</span>
-      </div>
-    </footer>
+   
 
    
 
