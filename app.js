@@ -64,6 +64,6 @@ app.post('/signup', function(req,res){
 		client.end();
 		res.redirect('/signin');
 	});
-}
+});
 
 module.exports = app;
