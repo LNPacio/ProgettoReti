@@ -9,6 +9,16 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
+////////////////////////////////////////////////
+const { Client } = require('pg');
+
+const client = new Client({
+  connectionString: process.env.DATABASE_URL,
+  ssl: true,
+});
+
+
+///////////////////////////////////////////////
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -37,5 +47,23 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+//Registrazione
+app.post('/signup', function(req,res){
+	client.connect();
+	var name = req.body.name;
+    var email = req.body.email;
+    var password = req.body.inputPassword;
+    var surname = req.body.surname;
+    
+	client.query('INSERT INTO utente (email, name, surname, password) VALUES('+email+','+name+','+surname+','+password+')', (err, res) => {
+		if (err) throw err;
+		for (let row of res.rows) {
+			console.log(JSON.stringify(row));
+		}
+		client.end();
+		res.redirect('/signin');
+	});
+}
 
 module.exports = app;
