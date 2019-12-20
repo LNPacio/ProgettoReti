@@ -58,7 +58,7 @@ app.post('/signin', function(req,res){
 		if (err) throw err;
 		
 		
-		controllo presenza utenre
+		//controllo presenza utenre
 		if(response.row.length <= 0){
 			res.send('<html><body>Utente non registrato</body></html>');
 		}
