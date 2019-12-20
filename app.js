@@ -31,6 +31,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/users',express.static(path.join(__dirname, 'public')));
+app.use('/dist/js',express.static(path.join(__dirname, 'public/javascripts')));
 
 //Registrazione
 app.post('/signup', function(req,res){
