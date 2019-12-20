@@ -72,7 +72,7 @@ app.post('/signin', function(req,res){
 			if(response.rows[0].password == password){
 				sess= req.session;
 				sess.email = email;
-				res.redirect('/utente/${email}/home');
+				res.redirect('/users/'+sess.email+'/home');
 			}
 			else{
 				res.send('<html><body>Password errata</body></html>');
@@ -84,7 +84,7 @@ app.post('/signin', function(req,res){
 	
 });
 
-app.get('/utente/:email/home', function(req, res, next) {
+app.get('/users/:email/home', function(req, res, next) {
 	sess = req.session;
 		if(sess.email) {
 			res.render('home');
@@ -96,7 +96,7 @@ app.get('/utente/:email/home', function(req, res, next) {
 	
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+//app.use('/users', usersRouter);
 
 
 // catch 404 and forward to error handler
