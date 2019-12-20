@@ -14,7 +14,7 @@ const { Client } = require('pg');
 
 const client = new Client({
   connectionString: process.env.DATABASE_URL,
-  ssl: false,
+  ssl: true
 });
 
 
@@ -42,9 +42,7 @@ app.post('/signup', function(req,res){
 		response.status(201).send('User added');
 		client.end();
 		
-	}).catch((err) => {
-        console.log(err);
-        res.send("Errore Database!")});
+	});
 });
 
 app.use('/', indexRouter);
