@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
-app.get('/home', function(req, res, next) {
+router.get('/home', function(req, res, next) {
 		if(req.session.email) {
 			res.render('home');
 		}
