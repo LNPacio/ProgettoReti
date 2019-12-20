@@ -56,7 +56,7 @@ app.post('/signup', function(req,res){
     var password = req.body.inputPassword;
     var surname = req.body.surname;
     
-	client.query('INSERT INTO utente (email, name, surname, password) VALUES('+email+','+name+','+surname+','+password+')', (err, res) => {
+	client.query('INSERT INTO utente VALUES('+email+','+name+','+surname+','+password+')', (err, res) => {
 		if (err) throw err;
 		for (let row of res.rows) {
 			console.log(JSON.stringify(row));
