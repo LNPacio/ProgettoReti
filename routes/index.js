@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/signin', function(req, res, next) {
-	if (session.email){
+	if (req.session.email){
 		res.redirect('/users/home');
 	}
   res.render('login');
