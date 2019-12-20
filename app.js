@@ -48,6 +48,7 @@ app.post('/signup', function(req,res){
     client.query('SELECT email from utente where email = $1', [email], (err, response) => {
 		if (err) throw err;
 		
+		console.log(response);
 		if(response.rows.length > 0){
 			res.send('<html><body>Utente già registrato</body></html>');
 		}
