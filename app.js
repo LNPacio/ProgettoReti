@@ -57,7 +57,7 @@ app.post('/signin', function(req,res){
 	client.query('SELECT password from utente where email = $1', [email], (err, response) => {
 		if (err) throw err;
 		
-		console.log('$1',[response.rows[0].value.password]);
+		console.log('$1',[response.rows[0].password]);
 		
 		/*controllo presenza utenre
 		if(response.row.length <= 0){
