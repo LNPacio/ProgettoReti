@@ -29,8 +29,27 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//Registrazione
+app.post('/signup', function(req,res){
+	client.connect();
+	var name = req.body.name;
+    var email = req.body.email;
+    var password = req.body.inputPassword;
+    var surname = req.body.surname;
+    
+	client.query("INSERT INTO utente VALUES('ciccio', 'bello','cicciobello@gmail.com', 'cicciobello')", (err, res) => {
+		if (err) throw err;
+		for (let row of res.rows) {
+			console.log(JSON.stringify(row));
+		}
+		client.end();
+		res.redirect('/signin');
+	});
+});
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -48,22 +67,6 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-//Registrazione
-app.post('/signup', function(req,res){
-	client.connect();
-	var name = req.body.name;
-    var email = req.body.email;
-    var password = req.body.inputPassword;
-    var surname = req.body.surname;
-    
-	client.query('INSERT INTO utente VALUES('+email+','+name+','+surname+','+password+')', (err, res) => {
-		if (err) throw err;
-		for (let row of res.rows) {
-			console.log(JSON.stringify(row));
-		}
-		client.end();
-		res.redirect('/signin');
-	});
-});
+
 
 module.exports = app;
