@@ -17,6 +17,8 @@ const client = new Client({
   ssl: true
 });
 
+client.connect();
+
 
 ///////////////////////////////////////////////
 // view engine setup
@@ -31,7 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //Registrazione
 app.post('/signup', function(req,res){
-	client.connect();
+	
 	var name = req.body.name;
     var email = req.body.inputEmail;
     var password = req.body.inputPassword;
@@ -40,7 +42,6 @@ app.post('/signup', function(req,res){
     
 	client.query('INSERT INTO utente(email, name, surname, password) VALUES($1,$2,$3,$4)', [email, name, surname, password], (err, res) => {
 		if (err) throw err;
-		client.end();
 		
 	});
 	res.redirect('/signin');
