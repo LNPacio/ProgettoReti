@@ -34,8 +34,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/users/',express.static(path.join(__dirname, 'public')));
-app.use('/users/*',express.static(path.join(__dirname, 'public')));
+app.use('/users',express.static(path.join(__dirname, 'public')));
 app.use('/dist/js',express.static(path.join(__dirname, 'public/javascripts')));
 
 //Registrazione //impementare controllo email già esistente
@@ -73,7 +72,7 @@ app.post('/signin', function(req,res){
 			if(response.rows[0].password == password){
 				sess= req.session;
 				sess.email = email;
-				res.redirect('/users/'+sess.email+'/home');
+				res.redirect('/users/home');
 			}
 			else{
 				res.send('<html><body>Password errata</body></html>');
@@ -85,7 +84,7 @@ app.post('/signin', function(req,res){
 	
 });
 
-app.get('/users/:email/home', function(req, res, next) {
+app.get('/users/home', function(req, res, next) {
 	sess = req.session;
 		if(sess.email) {
 			res.render('home');
@@ -97,7 +96,7 @@ app.get('/users/:email/home', function(req, res, next) {
 	
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+//app.use('/users', usersRouter);
 
 
 // catch 404 and forward to error handler
