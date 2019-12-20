@@ -39,7 +39,7 @@ app.post('/signup', function(req,res){
     
     
 	client.query('INSERT INTO utente(email, name, surname, password) VALUES($1,$2,$3,$4)', [email, name, surname, password], (err, res) => {
-		if (err) throw err;
+		if (err) {throw err};
 		
 	});
 	res.redirect('/signin');
