@@ -54,9 +54,18 @@ app.post('/signin', function(req,res){
     var email = req.body.inputEmail;
     var password = req.body.inputPassword;
     
-	client.query('SELECT password from utente where email = $1', [email], (err, res) => {
+	client.query('SELECT password from utente where email = $1', [email], (err, response) => {
 		if (err) throw err;
-		console.log(res);
+		
+		console.log('$1',[response.rows[0].value.password]);
+		
+		/*controllo presenza utenre
+		if(response.row.length <= 0){
+			res.send('<html><body>Utente non registrato</body></html>');
+		}
+		else{
+			if(response.row.password)
+		}*/
 		
 	});
 	res.redirect('/signin');
