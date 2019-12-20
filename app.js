@@ -3,13 +3,14 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var session = require('express-session')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
 
-////////////////////////////////////////////////
+//DB connessione/////////////////////
 const { Client } = require('pg');
 
 const client = new Client({
@@ -20,6 +21,9 @@ const client = new Client({
 client.connect();
 
 
+//cookie//////////////////////////////
+app.use(session({secret: 'ssshhhhh',saveUninitialized: true,resave: true}));
+var sess;
 ///////////////////////////////////////////////
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -33,7 +37,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/users',express.static(path.join(__dirname, 'public')));
 app.use('/dist/js',express.static(path.join(__dirname, 'public/javascripts')));
 
-//Registrazione
+//Registrazione //impementare controllo email già esistente
 app.post('/signup', function(req,res){
 	
 	var name = req.body.name;
@@ -50,7 +54,7 @@ app.post('/signup', function(req,res){
 	
 });
 
-//Loggin
+//Login
 app.post('/signin', function(req,res){
 	
     var email = req.body.inputEmail;
@@ -66,16 +70,28 @@ app.post('/signin', function(req,res){
 		}
 		else{
 			if(response.rows[0].password == password){
-			res.redirect('/users/home');
+				sess= req.session;
+				sess.email = email;
+				res.redirect('/utente/${email}/home');
 			}
 			else{
-			res.send('<html><body>Password errata</body></html>');
+				res.send('<html><body>Password errata</body></html>');
 			}
 		}
 		
 	});
 	//res.redirect('/signin');
 	
+});
+
+app.get('/utente/:email/home', function(req, res, next) {
+	sess = req.session;
+		if(sess.email) {
+			res.render('home');
+		}
+		else{
+			res.redirect('/signin');
+		}
 });
 	
 
