@@ -84,19 +84,11 @@ app.post('/signin', function(req,res){
 	
 });
 
-app.get('/users/home', function(req, res, next) {
-	sess = req.session;
-		if(sess.email) {
-			res.render('home');
-		}
-		else{
-			res.redirect('/signin');
-		}
-});
+
 	
 
 app.use('/', indexRouter);
-//app.use('/users', usersRouter);
+app.use('/users', usersRouter);
 
 
 // catch 404 and forward to error handler
