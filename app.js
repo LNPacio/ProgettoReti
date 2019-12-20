@@ -50,7 +50,7 @@ app.post('/signup', function(req,res){
 		
 		console.log(response);
 		if(response.rows.length > 0){
-			res.send('<html><body>Utente già registrato</body></html>');
+			res.send('<html><body>Utente gia registrato</body></html>');
 		}
 		
 		else{
@@ -59,9 +59,9 @@ app.post('/signup', function(req,res){
 		if (err) throw err;
 		
 	});
+	res.redirect('/signin');
 		}
 	});
-	res.redirect('/signin');
 	
 });
 
