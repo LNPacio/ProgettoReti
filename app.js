@@ -33,9 +33,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.post('/signup', function(req,res){
 	client.connect();
 	var name = req.body.name;
-    var email = req.body.email;
+    var email = req.body.inputEmail;
     var password = req.body.inputPassword;
     var surname = req.body.surname;
+    
     
 	client.query('INSERT INTO utente(email, name, surname, password) VALUES($1,$2,$3,$4)', [email, name, surname, password], (err, res) => {
 		if (err){ throw err};
