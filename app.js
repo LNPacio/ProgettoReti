@@ -45,10 +45,20 @@ app.post('/signup', function(req,res){
     var password = req.body.inputPassword;
     var surname = req.body.surname;
     
+    client.query('SELECT email from utente where email = $1'[email], (err, response) => {
+		if (err) throw err;
+		
+		if(response.rows.length > 0){
+			res.send('<html><body>Utente già registrato</body></html>');
+		}
+		
+		else{
     
 	client.query('INSERT INTO utente(email, name, surname, password) VALUES($1,$2,$3,$4)', [email, name, surname, password], (err, res) => {
 		if (err) throw err;
 		
+	});
+		}
 	});
 	res.redirect('/signin');
 	
