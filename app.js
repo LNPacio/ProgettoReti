@@ -48,6 +48,22 @@ app.post('/signup', function(req,res){
 	
 });
 
+//Loggin
+app.post('/signin', function(req,res){
+	
+    var email = req.body.inputEmail;
+    var password = req.body.inputPassword;
+    
+	client.query('SELECT password from utente where email = $1', [email], (err, res) => {
+		if (err) throw err;
+		console.log(res);
+		
+	});
+	res.redirect('/signin');
+	
+});
+	
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
