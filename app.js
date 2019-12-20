@@ -14,7 +14,7 @@ const { Client } = require('pg');
 
 const client = new Client({
   connectionString: process.env.DATABASE_URL,
-  ssl: true,
+  ssl: false,
 });
 
 
@@ -38,13 +38,13 @@ app.post('/signup', function(req,res){
     var surname = req.body.surname;
     
 	client.query("INSERT INTO utente VALUES('ciccio', 'bello','cicciobello@gmail.com', 'cicciobello')", (err, res) => {
-		if (err) throw err;
-		for (let row of res.rows) {
-			console.log(JSON.stringify(row));
-		}
+		if (err){ throw err};
+		response.status(201).send('User added');
 		client.end();
-		res.redirect('/signin');
-	});
+		
+	}).catch((err) => {
+        console.log(err);
+        res.send("Errore Database!")});
 });
 
 app.use('/', indexRouter);
