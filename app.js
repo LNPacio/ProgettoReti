@@ -64,7 +64,7 @@ app.post('/signin', function(req,res){
 		}
 		else{
 			if(response.rows[0].password == password){
-			res.send('<html><body>Accsso riuscito</body></html>');
+			res.redirect('/user/home');
 			}
 			else{
 			res.send('<html><body>Password errata</body></html>');

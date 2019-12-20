@@ -1,0 +1,82 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="images/favicon_2.ico?1" />
+    <script type="text/javascript" lang="javascript" src="javascripts/funzioni_pagina.js"></script>
+
+    <title>Nome_Progetto</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/sticky-footer-navbar.css" rel="stylesheet">
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAA9ofEZL32oxtYHyJBuYUK1cGXbszv2l8&callback=initMap" async defer></script>
+    
+  </head>
+
+  <body onload="initMap()">
+    <header>
+      <!-- Fixed navbar -->
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <h1 class="navbar-brand">Nome_Progetto</h1>
+       
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Link1 <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Link2</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Link3</a>
+            </li>
+          </ul>
+          <div class="clock" id="clock"></div>
+        </div>
+      </nav>
+    </header>
+
+  <!-- Begin page content -->
+  <main role="main" class="container">
+      <div class="div0">
+        <div class = "div1">
+          <!--Selezione del Paese-->
+          <form class="form-inline mt-2 mt-md-0" name = "form_citta">
+            <input class="form-control mr-sm-2" type="textbox" id = "address" placeholder="Search City" aria-label="Search">
+            <button class="btn btn-outline-primary my-2 my-sm-0" id = "bottone_città" type="button" onclick="codeAddress()">Search</button>
+          </form>
+          <!--Selezione della data-->
+          <form class="form-inline mt-2 mt-md-0" name = "form_data">
+            <h5 class="navbar-brand">Select data</h5>
+            <input type="date" name="date"></input>
+          </form>
+        </div>
+        <!--Mappa-->
+        <div class = "map" id="map"></div>
+
+      </div>
+    </main>
+
+   
+
+   
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+  </body>
+</html>
