@@ -45,7 +45,7 @@ app.post('/signup', function(req,res){
     var password = req.body.inputPassword;
     var surname = req.body.surname;
     
-    client.query('SELECT email from utente where email = $1'[email], (err, response) => {
+    client.query('SELECT email from utente where email = $1', [email], (err, response) => {
 		if (err) throw err;
 		
 		if(response.rows.length > 0){
