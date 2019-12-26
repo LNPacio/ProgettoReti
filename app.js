@@ -71,7 +71,7 @@ app.post('/signin', function(req,res){
     var email = req.body.inputEmail;
     var password = req.body.inputPassword;
     
-	client.query('SELECT password from utente where email = $1', [email], (err, response) => {
+	client.query('SELECT password, name, surname from utente where email = $1', [email], (err, response) => {
 		if (err) throw err;
 		
 		
@@ -83,6 +83,8 @@ app.post('/signin', function(req,res){
 			if(response.rows[0].password == password){
 				sess= req.session;
 				sess.email = email;
+				sess.name = response.rows[0].name;
+				sess.surname = response.rows[0].surname;
 				res.redirect('/users/home');
 			}
 			else{

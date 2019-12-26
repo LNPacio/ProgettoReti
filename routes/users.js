@@ -18,7 +18,7 @@ router.get('/home', function(req, res, next) {
 
 router.get('/profile', function(req, res, next) {
 		if(req.session.email) {
-			res.render('userprofile');
+			res.render('userprofile', {name: req.session.name, surname: req.session.surname});
 		}
 		else{
 			res.redirect('/signin');
