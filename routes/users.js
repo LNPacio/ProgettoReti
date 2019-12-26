@@ -16,6 +16,15 @@ router.get('/home', function(req, res, next) {
 		}
 });
 
+router.get('/profile', function(req, res, next) {
+		if(req.session.email) {
+			res.render('userprofile');
+		}
+		else{
+			res.redirect('/signin');
+		}
+});
+
 router.get('/logout',(req,res) => {
     req.session.destroy((err) => {
         if(err) {
