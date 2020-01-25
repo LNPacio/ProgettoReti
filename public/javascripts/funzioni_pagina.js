@@ -87,11 +87,12 @@ function codeAddress() {
         var currentDate = item.dt_txt;
         if (currentDate.indexOf(data) != -1){
           returnObject[currentDate] = item.main;
-          alert(item.main.humidity);
+         
+          document.getElementById("w0").innerHTML = item.main.humidity;
         }
       }
   
-      alert(responseObject.city.name);
+      //alert(responseObject.city.name);
       
   }
   

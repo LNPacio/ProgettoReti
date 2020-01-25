@@ -45,15 +45,14 @@ code {
   width: 30%;
   position: absolute;
   top: 20px;
-  left: 0;
+  left: -110px;
   
 }
 .div2{
-  width: 50%;
+  width: 55%;
   position: absolute;
-  top: 20px;
-  left: 50%;
-  background-color: blue;
+  top: 200px;
+  left: -110px;
 }
 .clock{
   color: white;
