@@ -69,24 +69,29 @@ function codeAddress() {
   }
 
 
-function clientOpenWeather(){
-  var valueToReturn = null;
-  var cityName = document.getElementById("address").value;
-  var path = 'http://api.openweathermap.org/data/2.5/forecast?q=' + cityName + '&APPID=2f75a108e91deb708a808543db5dc6df';
-  
-  var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", path, false ); // false for synchronous request
-    xmlHttp.send( null );
-    var responseObject = JSON.parse(xmlHttp.responseText);
 
-   /* var returnObject = {};
-    var list = responseObject.list;
-    for (var item of list){
-      var currentDate = item.dt_txt;
-      if (currentDate.indexOf(data) != -1){
-        responseObject[currentDate] = item.main;
+  function clientOpenWeather(){
+    var valueToReturn = null;
+    var cityName = document.getElementById("address").value;
+    var data = document.getElementById("data").value;
+    var path = 'http://api.openweathermap.org/data/2.5/forecast?q=' + cityName + '&APPID=2f75a108e91deb708a808543db5dc6df';
+    
+    var xmlHttp = new XMLHttpRequest();
+      xmlHttp.open( "GET", path, false ); // false for synchronous request
+      xmlHttp.send( null );
+      var responseObject = JSON.parse(xmlHttp.responseText);
+  
+      var returnObject = {};
+      var list = responseObject.list;
+      for (var item of list){
+        var currentDate = item.dt_txt;
+        if (currentDate.indexOf(data) != -1){
+          returnObject[currentDate] = item.main;
+          alert(item.main.humidity);
+        }
       }
-    }
-*/
-    alert(responseObject.city.name);
-}
+  
+      alert(responseObject.city.name);
+      
+  }
+  
