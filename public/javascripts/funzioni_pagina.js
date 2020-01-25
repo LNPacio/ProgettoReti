@@ -72,6 +72,7 @@ function codeAddress() {
 
 
 function clientOpenWeather(){
+  alert("BELLA");
   var valueToReturn = null;
   var cityName = document.getElementById("address").value;
   var path = 'http://api.openweathermap.org/data/2.5/forecast?q=' + cityName + '&APPID=2f75a108e91deb708a808543db5dc6df';
