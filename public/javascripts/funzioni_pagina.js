@@ -1,5 +1,10 @@
+var request = require('request');
+
+
+
+
 function updateDate(){
-    data = new Date();
+data = new Date();
 ora =data.getHours();
 minuti=data.getMinutes();
 secondi=data.getSeconds();
@@ -64,3 +69,13 @@ function codeAddress() {
     });
  
   }
+
+
+function clientOpenWeather(){
+  var valueToReturn = null;
+  var cityName = document.getElementById("address").value;
+  var path = 'http://api.openweathermap.org/data/2.5/forecast?q=' + cityName + '&APPID=2f75a108e91deb708a808543db5dc6df';
+  request(path, function (error, response, body) {
+    alert(body);
+  });
+}
