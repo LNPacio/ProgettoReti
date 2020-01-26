@@ -51,7 +51,7 @@ function initMap() {
     zoom: 5 
     });
 }
-//gggggggggggggggggggggggggggggggggggggggggg
+
 function codeAddress() {
     var address = document.getElementById('address').value;
     geocoder.geocode( { 'address': address}, function(results, status) {
