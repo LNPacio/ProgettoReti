@@ -48,27 +48,104 @@
 
   <!-- Begin page content -->
   <main role="main" class="container">
-      <div class="div0">
-        <div class = "div1">
-          <!--Selezione del Paese-->
-          <form class="form-inline mt-2 mt-md-0" name = "form_citta">
-            <input class="form-control mr-sm-2" type="textbox" id = "address" placeholder="Search City" aria-label="Search">
-            <button class="btn btn-outline-primary my-2 my-sm-0" id = "bottone_città" type="button" onclick="clientOpenWeather()">Search</button>
-          </form>
-          <!--Selezione della data-->
-          <form class="form-inline mt-2 mt-md-0" name = "form_data">
-            <h5 class="navbar-brand">Select data</h5>
-            <input type="date" name="date"></input>
-          </form>
-        </div>
-        <!--Mappa-->
-        <div class = "map" id="map"></div>
-
-
-
-
+    <div class="div0">
+      <div class = "div1">
+        <!--Selezione del Paese-->
+        <form class="form-inline mt-2 mt-md-0" name = "form_citta">
+          <input class="form-control mr-sm-2" type="textbox" id = "address" placeholder="Search City" aria-label="Search"><br><br>
+          <input type="date" name="date" id = "data"></input><br><br><br>
+          <button class="btn btn-outline-primary btn-block" id = "bottone_città" type="button" onclick="clientOpenWeather()">Search</button>
+        </form>
       </div>
-    </main>
+
+      <div class="div2">
+        <table id = "tabella" border = 1 cellpadding = 10>
+          <tr>
+            <th></th>
+            <th>00:00</th>
+            <th>03:00</th>
+            <th>06:00</th>
+            <th>09:00</th>
+            <th>12:00</th>
+            <th>15:00</th>
+            <th>18:00</th>
+            <th>21:00</th>   
+          </tr>
+          <tr>
+            <td>Weather</td>
+            <td id = weather00:00:00></td>
+            <td id = weather03:00:00></td>
+            <td id = weather06:00:00></td>
+            <td id = weather09:00:00></td>
+            <td id = weather12:00:00></td>
+            <td id = weather15:00:00></td>
+            <td id = weather18:00:00></td>
+            <td id = weather21:00:00></td>
+          </tr>
+          <tr>
+            <td>Temp</td>
+            <td id = "temp00:00:00"></td>
+            <td id = "temp03:00:00"></td>
+            <td id = "temp06:00:00"></td>
+            <td id = "temp09:00:00"></td>
+            <td id = "temp12:00:00"></td>
+            <td id = "temp15:00:00"></td>
+            <td id = "temp18:00:00"></td>
+            <td id = "temp21:00:00"></td>
+          </tr>
+          <tr>
+            <td>T.Max</td>
+            <td id = "t_max00:00:00"></td>
+            <td id = "t_max03:00:00"></td>
+            <td id = "t_max06:00:00"></td>
+            <td id = "t_max09:00:00"></td>
+            <td id = "t_max12:00:00"></td>
+            <td id = "t_max15:00:00"></td>
+            <td id = "t_max18:00:00"></td>
+            <td id = "t_max21:00:00"></td>
+          </tr>
+          <tr>
+            <td>T.Min</td>
+            <td id = "t_min00:00:00"></td>
+            <td id = "t_min03:00:00"></td>
+            <td id = "t_min06:00:00"></td>
+            <td id = "t_min09:00:00"></td>
+            <td id = "t_min12:00:00"></td>
+            <td id = "t_min15:00:00"></td>
+            <td id = "t_min18:00:00"></td>
+            <td id = "t_min21:00:00"></td>
+          </tr>
+          <tr>
+            <td>Humidity</td>
+            <td id = "humidity00:00:00"></td>
+            <td id = "humidity03:00:00"></td>
+            <td id = "humidity06:00:00"></td>
+            <td id = "humidity09:00:00"></td>
+            <td id = "humidity12:00:00"></td>
+            <td id = "humidity15:00:00"></td>
+            <td id = "humidity18:00:00"></td>
+            <td id = "humidity21:00:00"></td>
+          </tr>
+          <tr>
+            <td>Wind</td>
+            <td id = "wind00:00:00"></td>
+            <td id = "wind03:00:00"></td>
+            <td id = "wind06:00:00"></td>
+            <td id = "wind09:00:00"></td>
+            <td id = "wind12:00:00"></td>
+            <td id = "wind15:00:00"></td>
+            <td id = "wind18:00:00"></td>
+            <td id = "wind21:00:00"></td>
+          </tr>
+
+        </table>
+      </div>
+      <!--Mappa-->
+      <div class = "map" id="map"></div>
+
+    </div>
+  </main>
+
 
    
 
