@@ -124,3 +124,4 @@ function clearTable(){
     document.getElementById("humidity"+hour).innerHTML = null;
     document.getElementById("wind"+hour).innerHTML = null;
   }
+}
