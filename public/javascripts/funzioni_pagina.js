@@ -87,14 +87,40 @@ function codeAddress() {
       for (var item of list){
         var currentDate = item.dt_txt;
         if (currentDate.indexOf(data) != -1){
-          returnObject[currentDate] = item.main;
-          //alert(currentDate.substring(11,currentDate.length)); ORARIO
-          
-          document.getElementById("w0").innerHTML = item.main.humidity;
+          returnObject[currentDate] = item;
+          //alert(currentDate.substring(11,currentDate.length)); 
+          //document.getElementById("w0").innerHTML = item.main.humidity;
         }
       }
-  
-      //alert(responseObject.city.name);
       
+      fillTable(returnObject);
+     
+  
+      //alert(responseObject.city.name); 
   }
   
+function fillTable(returnObject){
+  clearTable();
+  for (var date of Object.keys(returnObject)){
+    var infoWeather = returnObject[date];
+    var hour = date.split(" ")[1];
+    document.getElementById("weather"+hour).innerHTML = infoWeather.weather[0].main;
+    document.getElementById("temp"+hour).innerHTML = (infoWeather.main.temp -273,15) + " °C";
+    document.getElementById("t_max"+hour).innerHTML = (infoWeather.main.temp_max -273,15) + " °C";
+    document.getElementById("t_min"+hour).innerHTML = (infoWeather.main.temp_min -273,15) + " °C"; 
+    document.getElementById("humidity"+hour).innerHTML = infoWeather.main.humidity;
+    document.getElementById("wind"+hour).innerHTML = infoWeather.wind.speed;
+  }
+}
+
+function clearTable(){
+  var array = ["00:00:00","03:00:00","06:00:00","09:00:00","12:00:00","15:00:00","18:00:00","21:00:00"];
+  for (var hour of array){
+    document.getElementById("weather"+hour).innerHTML = null;
+    document.getElementById("temp"+hour).innerHTML = null;
+    document.getElementById("t_max"+hour).innerHTML = null;
+    document.getElementById("t_min"+hour).innerHTML = null; 
+    document.getElementById("humidity"+hour).innerHTML = null;
+    document.getElementById("wind"+hour).innerHTML = null;
+  }
+}
