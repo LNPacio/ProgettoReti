@@ -70,6 +70,7 @@ function codeAddress() {
 
 
 
+
   function clientOpenWeather(){
     var valueToReturn = null;
     var cityName = document.getElementById("address").value;
@@ -123,4 +124,3 @@ function clearTable(){
     document.getElementById("humidity"+hour).innerHTML = null;
     document.getElementById("wind"+hour).innerHTML = null;
   }
-}
