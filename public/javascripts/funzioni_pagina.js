@@ -83,11 +83,13 @@ function codeAddress() {
   
       var returnObject = {};
       var list = responseObject.list;
+     
       for (var item of list){
         var currentDate = item.dt_txt;
         if (currentDate.indexOf(data) != -1){
           returnObject[currentDate] = item.main;
-         
+          //alert(currentDate.substring(11,currentDate.length)); ORARIO
+          
           document.getElementById("w0").innerHTML = item.main.humidity;
         }
       }
