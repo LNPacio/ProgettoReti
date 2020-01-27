@@ -84,6 +84,7 @@ function codeAddress() {
       if (responseObject.cod == "404"){
         alert("Error: " +responseObject.cod + " Message: " +responseObject.message);
       }
+      document.getElementById("infocitta").innerHTML = responseObject.city.name + " (" + responseObject.city.country + ")"; 
       var returnObject = {};
       var list = responseObject.list;
       for (var item of list){
