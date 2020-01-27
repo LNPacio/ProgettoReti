@@ -81,27 +81,18 @@ function codeAddress() {
       xmlHttp.open( "GET", path, false ); // false for synchronous request
       xmlHttp.send( null );
       var responseObject = JSON.parse(xmlHttp.responseText);
-      alert(JSON.stringify(responseObject));
       if (responseObject.cod == "404"){
-        alert("Error: " +responseObject.cod + "Message: " +responseObject.message);
+        alert("Error: " +responseObject.cod + " Message: " +responseObject.message);
       }
-  
       var returnObject = {};
       var list = responseObject.list;
-     
       for (var item of list){
         var currentDate = item.dt_txt;
         if (currentDate.indexOf(data) != -1){
           returnObject[currentDate] = item;
-          //alert(currentDate.substring(11,currentDate.length)); 
-          //document.getElementById("w0").innerHTML = item.main.humidity;
         }
       }
-      
       fillTable(returnObject);
-     
-  
-      //alert(responseObject.city.name); 
   }
   
 function fillTable(returnObject){
