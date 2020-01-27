@@ -81,6 +81,7 @@ function codeAddress() {
       xmlHttp.open( "GET", path, false ); // false for synchronous request
       xmlHttp.send( null );
       var responseObject = JSON.parse(xmlHttp.responseText);
+      alert(responseObject);
       if (responseObject.code != "200"){
         alert("Errore città inserita errata");
       }
