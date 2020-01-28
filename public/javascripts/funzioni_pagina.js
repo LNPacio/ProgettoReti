@@ -72,6 +72,7 @@ function codeAddress() {
 
 
   function clientOpenWeather(){
+    alert(document.getElementById("data").value);
     var valueToReturn = null;
     var cityName = document.getElementById("address").value;
     var data = document.getElementById("data").value;
