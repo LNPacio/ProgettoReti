@@ -50,7 +50,7 @@ code {
 }
 .div2{
   width: 55%;
-  position: relative;
+  position: absolute;
   top: 200px;
   left: -110px;
 }
