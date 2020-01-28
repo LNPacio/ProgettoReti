@@ -59,12 +59,6 @@ app.post('/signup', function(req,res){
 		if (err) throw err;
 		
 	});
-
-	client.query('INSERT INTO luoghi(città, email) VALUES($1,$2)', [email, name,], (err, res) => {
-		if (err) throw err;
-		
-	});
-
 	res.redirect('/signin');
 		}
 	});
