@@ -5,5 +5,10 @@ CREATE TABLE utente (
   password      varchar(60)
 );
 
+CREATE TABLE luoghi (
+  città varchar(45),
+  email varchar(45)
+);
+
 
 
