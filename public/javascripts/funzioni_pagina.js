@@ -72,10 +72,13 @@ function codeAddress() {
 
 
   function clientOpenWeather(){
-    alert(document.getElementById("data").value);
     var valueToReturn = null;
     var cityName = document.getElementById("address").value;
     var data = document.getElementById("data").value;
+    if (data == null){
+      alert("Inserire una data");
+      return;
+    }
     var path = 'https://api.openweathermap.org/data/2.5/forecast?q=' + cityName + '&APPID=2f75a108e91deb708a808543db5dc6df';
     
     var xmlHttp = new XMLHttpRequest();
