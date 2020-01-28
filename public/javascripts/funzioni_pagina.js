@@ -108,8 +108,8 @@ function fillTable(returnObject){
     document.getElementById("temp"+hour).innerHTML = (infoWeather.main.temp -273,15) + " °C";
     document.getElementById("t_max"+hour).innerHTML = (infoWeather.main.temp_max -273,15) + " °C";
     document.getElementById("t_min"+hour).innerHTML = (infoWeather.main.temp_min -273,15) + " °C"; 
-    document.getElementById("humidity"+hour).innerHTML = infoWeather.main.humidity;
-    document.getElementById("wind"+hour).innerHTML = infoWeather.wind.speed;
+    document.getElementById("humidity"+hour).innerHTML = infoWeather.main.humidity + " %";
+    document.getElementById("wind"+hour).innerHTML = infoWeather.wind.speed + " m/s";
   }
 }
 
