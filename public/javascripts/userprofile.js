@@ -6,7 +6,7 @@ $(document).ready(function(){
         if(msg.errore) alert("Errore");
         else{
 			for(var nome of msg)
-			 alert(nome.città);
+			$('#list_city').innerHTML+='<option value='+nome+'>'+nome+'</option>';
 		}
         });
 	});
