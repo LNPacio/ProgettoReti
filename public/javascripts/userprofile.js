@@ -7,7 +7,7 @@ $(document).ready(function(){
         else{
 			for(var nome of msg)
 			$('#list_city').append('<option value='+nome.città+'>'+nome.città+'</option>');
-			$('#list_city').attr("disabled", false);
+			$('#list_city').attr("hidden", false);
 			$("#show_city").attr("disabled", true);
 		}
         });
