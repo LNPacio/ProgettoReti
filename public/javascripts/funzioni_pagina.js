@@ -138,5 +138,7 @@ $(document).ready(function(){
 		request.done(function(msg) {
         if(msg.errore) alert("Errore");
         else alert(msg);
+        });
 	});
 });
+
