@@ -146,7 +146,7 @@ app.get('/showUsersCities', function(req, res, next) {
 		if (err) throw err;
 		
 		for(var i = 0; i< response.rows.length; i++){
-			cityList.add(response.rows[i].città);
+			cityList.push(response.rows[i].città);
 		}
 		});
 		res.send(cityList);
