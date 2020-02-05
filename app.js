@@ -137,6 +137,20 @@ app.post('/remove_city', function(req,res){
 	});
 });
 
+
+//popolazione lista città in profilo
+app.get('/showUsersCities', function(req, res, next) {
+		var email = sess.email;
+		client.query('SELECT città from luoghi where email = $1 and città = $2', [email, città], (err, response) => {
+		if (err) throw err;
+		
+		var cityList = [];
+		for (var i of response.rows){
+			cityList.add(i.city);
+		}
+		res.send(cityList);
+});
+
 	
 
 app.use('/', indexRouter);
