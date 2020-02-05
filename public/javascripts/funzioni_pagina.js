@@ -131,8 +131,12 @@ $(document).ready(function(){
 	
 	$("#aggiungi_città").click(function(){
 		alert("premuto bottone");
-		$.post("/test", {città: cityNameSelect}, function(data, status){
+		var request = $.post("/test", {città: cityNameSelect}, function(data, status){
 			alert("CityName: "+cityNameSelect);
 			});
+			
+		request.done(function(msg) {
+        if(msg.errore) alert("Errore");
+        else alert(msg);
 	});
 });
