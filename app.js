@@ -98,7 +98,7 @@ app.post('/signin', function(req,res){
 });
 
 app.post('/test', function(req,res){
-	var città = req;	
+	var città = JSON.stringify(req);	
 	res.send(città);
 });
 
