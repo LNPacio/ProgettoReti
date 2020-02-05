@@ -10,6 +10,18 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
+
+
+var $ = require("jquery"),
+XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+
+$.support.cors = true;
+$.ajaxSettings.xhr = function() {
+return new XMLHttpRequest();
+};
+
+
+
 //DB connessione/////////////////////
 const { Client } = require('pg');
 
