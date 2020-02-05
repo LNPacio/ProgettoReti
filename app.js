@@ -102,6 +102,10 @@ app.post('/add_city', function(req,res){
 	var città = req.body.città;	
 	var email = sess.email;
 	
+	if (città == '') res.send("Inserisci una città prima!");
+	
+	else{
+	
 	client.query('SELECT città from luoghi where email = $1 and città = $2', [email, città], (err, response) => {
 		if (err) throw err;
 		
@@ -115,6 +119,7 @@ app.post('/add_city', function(req,res){
 		else
 			res.send("La città "+città+" è già presente!");
 	});
+	}
 });
 
 //eliminazione città in profilo
