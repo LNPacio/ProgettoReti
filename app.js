@@ -130,7 +130,7 @@ app.post('/remove_city', function(req,res){
 			client.query('DELETE from luoghi where email = $1 and città = $2', [email, città,], (err, res) => {
 				if (err) throw err;		
 			});
-			res.send("La "città+" è stata eliminata!");
+			res.send("La "+città+" è stata eliminata!");
 		}
 		else
 			res.send("La città "+città+" non ancora inserita!");
