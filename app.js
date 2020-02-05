@@ -99,7 +99,7 @@ app.post('/signin', function(req,res){
 
 app.post('/test', function(req,res){
 	var città = req.città;	
-	//res.send('<html><body>'+città+'</body></html>');
+	res.send('<html><body>'+città+'</body></html>');
 });
 
 	
