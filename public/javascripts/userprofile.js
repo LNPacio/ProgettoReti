@@ -4,7 +4,10 @@ $(document).ready(function(){
 		
 		request.done(function(msg) {
         if(msg.errore) alert("Errore");
-        else alert(msg);
+        else{
+			for(var nome of msg)
+			 alert(nome.città);
+		}
         });
 	});
 });
