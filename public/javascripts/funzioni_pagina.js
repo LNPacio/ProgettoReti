@@ -127,6 +127,7 @@ function clearTable(){
 $(document).ready(function(){
 	$("#aggiungi_città").click(function(){
 		//alert("premuto bottone");
-		$.post("/test", function(){});
+		//$.post("/test", function(){});
+		$.ajax({type: "POST", url: "test"});
 	});
 });
