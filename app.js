@@ -142,7 +142,7 @@ app.post('/remove_city', function(req,res){
 app.get('/showUsersCities', function(req, res, next) {
 		var email = sess.email;
 		var cityList = [];
-		client.query('SELECT città from luoghi where email = $1 and città = $2', [email, città], (err, response) => {
+		client.query('SELECT città from luoghi where email = $1', [email], (err, response) => {
 		if (err) throw err;
 		
 		for (var i of response.rows){
