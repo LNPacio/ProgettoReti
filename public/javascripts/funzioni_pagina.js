@@ -126,15 +126,21 @@ function clearTable(){
   }
 }
 
-//funzioni per aggiungere città
+
 $(document).ready(function(){
 	
+	//funzione per aggiungere città
 	$("#aggiungi_città").click(function(){
-		alert("premuto bottone");
-		var request = $.post("/test", {città: cityNameSelect}, function(data, status){
-			alert("CityName: "+cityNameSelect);
-			});
-			
+		var request = $.post("/add_city", {città: cityNameSelect}, function(data, status){});
+		request.done(function(msg) {
+        if(msg.errore) alert("Errore");
+        else alert(msg);
+        });
+	});
+	
+	//funzione per aggiungere città
+	$("#rimuovi_città").click(function(){
+		var request = $.post("/remove_city", {città: cityNameSelect}, function(data, status){});
 		request.done(function(msg) {
         if(msg.errore) alert("Errore");
         else alert(msg);

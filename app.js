@@ -96,8 +96,9 @@ app.post('/signin', function(req,res){
 	//res.redirect('/signin');
 	
 });
+
 //inserimento città in profilo
-app.post('/test', function(req,res){
+app.post('/add_city', function(req,res){
 	var città = req.body.città;	
 	var email = sess.email;
 	
@@ -112,7 +113,27 @@ app.post('/test', function(req,res){
 			res.send(città+" inserita!");
 		}
 		else
-			res.send("La città "+città+"è già presente!");
+			res.send("La città "+città+" è già presente!");
+	});
+});
+
+//eliminazione città in profilo
+app.post('/remove_city', function(req,res){
+	var città = req.body.città;	
+	var email = sess.email;
+	
+	client.query('SELECT città from luoghi where email = $1 and città = $2', [email, città], (err, response) => {
+		if (err) throw err;
+		
+		//controllo presenza città
+		if(response.rows.length > 0){
+			client.query('DELETE from luoghi where email = $1 and città = $2', [email, città,], (err, res) => {
+				if (err) throw err;		
+			});
+			res.send("La "città+" è stata eliminata!");
+		}
+		else
+			res.send("La città "+città+" non ancora inserita!");
 	});
 });
 
