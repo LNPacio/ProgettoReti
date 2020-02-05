@@ -128,7 +128,7 @@ $(document).ready(function(){
 	
 	$("#aggiungi_città").click(function(){
 		alert("premuto bottone");
-		var r = $.post("test");
+		$.post("/test");
 		//$.ajax({type: "POST", url: "test"});
 	});
 });
