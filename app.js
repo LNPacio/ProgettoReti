@@ -98,7 +98,8 @@ app.post('/signin', function(req,res){
 });
 
 app.post('/test', function(req,res){
-	res.send('<html><body>Hai premuto il pulsante aggiungi città</body></html>');
+	var = req.città;	
+	res.send({data: città, status: 200});
 });
 
 	

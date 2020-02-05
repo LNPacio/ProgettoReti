@@ -68,7 +68,7 @@ function codeAddress() {
  
   }
 
-
+  var cityNameSelect ='';
 
 
   function clientOpenWeather(){
@@ -88,6 +88,7 @@ function codeAddress() {
         alert("Error: " +responseObject.cod + " Message: " + responseObject.message);
       }
       document.getElementById("infocitta").innerHTML = "City: " + responseObject.city.name + " (" + responseObject.city.country + ")"; 
+      cityNameSelect = responseObject.city.name;
       var returnObject = {};
       var list = responseObject.list;
       for (var item of list){
@@ -124,11 +125,14 @@ function clearTable(){
     document.getElementById("wind"+hour).innerHTML = null;
   }
 }
+
+//funzioni per aggiungere città
 $(document).ready(function(){
 	
 	$("#aggiungi_città").click(function(){
 		alert("premuto bottone");
-		$.post("/test");
-		//$.ajax({type: "POST", url: "test"});
+		$.post("/test", {città: cityNameSelect}, function(data, status){
+			alert("Dati ricevuti "+ data + "\nStatus: " + status);
+			);
 	});
 });
