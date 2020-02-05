@@ -127,7 +127,7 @@ function clearTable(){
 $(document).ready(function(){
 	$("#aggiungi_città").click(function(){
 		alert("premuto bottone");
-		$.post("/test", {nome:"cio"}, function(data,status){alert("ciao"+status);});
+		$.post("test.asp");
 		//$.ajax({type: "POST", url: "test"});
 	});
 });
