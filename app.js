@@ -98,8 +98,8 @@ app.post('/signin', function(req,res){
 });
 
 app.post('/test', function(req,res){
-	var città = req.città;	
-	res.send('<html><body>ciao belli</body></html>');
+	var città = req;	
+	res.send(città);
 });
 
 	
