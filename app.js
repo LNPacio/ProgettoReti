@@ -96,10 +96,24 @@ app.post('/signin', function(req,res){
 	//res.redirect('/signin');
 	
 });
-
+//inserimento città in profilo
 app.post('/test', function(req,res){
 	var città = req.body.città;	
-	res.send(città);
+	var email = sess.email;
+	
+	client.query('SELECT città from luoghi where email = $1 and città = $2', [email, città], (err, response) => {
+		if (err) throw err;
+		
+		//controllo presenza città
+		if(response.rows.length <= 0){
+			client.query('INSERT INTO luoghi(città, email) VALUES($1,$2)', [città, email], (err, res) => {
+				if (err) throw err;		
+			});
+			res.send(città+" inserita!");
+		}
+		else
+			res.send("La città "+città+"è già presente!");
+	});
 });
 
 	
