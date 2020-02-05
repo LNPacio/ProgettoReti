@@ -124,8 +124,9 @@ function clearTable(){
     document.getElementById("wind"+hour).innerHTML = null;
   }
 }
-
-$("#aggiungi_città").click(function(){
-	alert("premuto bottone");
-    //$.post('/test');
+$(document).ready(function(){
+	$("#aggiungi_città").click(function(){
+		alert("premuto bottone");
+		$.post('/test');
+	});
 });
