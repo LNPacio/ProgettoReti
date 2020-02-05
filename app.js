@@ -98,8 +98,8 @@ app.post('/signin', function(req,res){
 });
 
 app.post('/test', function(req,res){
-	var = req.città;	
-	res.send({data: città, status: 200});
+	//var = req.città;	
+	//res.send({data: città, status: 200});
 });
 
 	
