@@ -133,6 +133,6 @@ $(document).ready(function(){
 		alert("premuto bottone");
 		$.post("/test", {città: cityNameSelect}, function(data, status){
 			alert("Dati ricevuti "+ data + "\nStatus: " + status);
-			);
+			});
 	});
 });
