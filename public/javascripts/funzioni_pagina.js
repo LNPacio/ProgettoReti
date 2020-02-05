@@ -125,9 +125,9 @@ function clearTable(){
   }
 }
 $(document).ready(function(){
-	$("#aggiungi_città").click(function(){
+	$("#aggiungi_città").click(function($){
 		alert("premuto bottone");
-		$(this).post("/test");
+		$.post("/test");
 		//$.ajax({type: "POST", url: "test"});
 	});
 });
