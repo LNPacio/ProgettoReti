@@ -145,8 +145,8 @@ app.get('/showUsersCities', function(req, res, next) {
 		client.query('SELECT città from luoghi where email = $1', [email], (err, response) => {
 		if (err) throw err;
 		
-		for(var i = 0; i< response.rows.length; i++){
-			cityList.push(response.rows[i].città);
+		for(var i = 0; i < response.rows.length; i++){
+			cityList.push(response.rows[i]);
 		}
 		});
 		res.send(cityList);
