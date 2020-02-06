@@ -90,7 +90,6 @@ function codeAddress() {
       document.getElementById("infocitta").innerHTML = "City: " + responseObject.city.name + " (" + responseObject.city.country + ")"; 
       cityNameSelect = responseObject.city.name;
       name_city_cap = responseObject.city.name + ','+responseObject.city.country;
-      alert(name_city_cap);
       var returnObject = {};
       var list = responseObject.list;
       for (var item of list){
@@ -270,7 +269,7 @@ function addLocationsToMap(locations){
 }
 
 // Now use the map as required...
-geocode(platform);
+//geocode(platform);
 
 
 
