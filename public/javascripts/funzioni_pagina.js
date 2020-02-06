@@ -238,10 +238,10 @@ var map2 = new H.Map(document.getElementById('map'),
 //Step 3: make the map interactive
 // MapEvents enables the event system
 // Behavior implements default interactions for pan/zoom (also on mobile touch environments)
-var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map2));
 
 // Create the default UI components
-var ui = H.ui.UI.createDefault(map, defaultLayers);
+var ui = H.ui.UI.createDefault(map2, defaultLayers);
 
 /**
  * Creates a series of H.map.Markers for each location found, and adds it to the map.
