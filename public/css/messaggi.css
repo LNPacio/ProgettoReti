@@ -6,7 +6,9 @@ body {
   /*the container must be positioned relative:*/
   position: relative;
   display: inline-block;
-  top:50px;
+}
+.scendi{
+	top:50px;
 }
 input {
   border: 1px solid transparent;
@@ -21,7 +23,6 @@ input[type=text] {
 input[type=submit] {
   background-color: DodgerBlue;
   color: #fff;
-  top:50px;
 }
 .autocomplete-items {
   position: absolute;
