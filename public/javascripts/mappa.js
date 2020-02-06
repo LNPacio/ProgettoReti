@@ -13,6 +13,7 @@ function mostra_città(){
 }
 
 function geocode(platform) {
+  document.getElementById("infocitta").value;
   var geocoder = platform.getGeocodingService(),
     geocodingParameters = {
       searchText: document.getElementById("infocitta").value,
