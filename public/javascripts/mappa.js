@@ -11,7 +11,7 @@
 function geocode(platform) {
   var geocoder = platform.getGeocodingService(),
     geocodingParameters = {
-      searchText: 'Anzio IT',
+      searchText: 'Anzio (IT)',
       jsonattributes : 1
     };
 
