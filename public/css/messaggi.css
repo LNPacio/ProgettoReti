@@ -100,7 +100,8 @@ input[type=submit] {
     overflow:hidden;
     padding:0;
     left: 50%;
-    top:20px;
+    top:-100px;
+    position
 }
 .frame > div:last-of-type{
     position:absolute;bottom:5px;width:100%;display:flex;
