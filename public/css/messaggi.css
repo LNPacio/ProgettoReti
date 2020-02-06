@@ -54,6 +54,7 @@ input[type=submit] {
 .ricerca{
 	width: 30%;
 	position: abslolute;
+	background-color : red;
 }
 
 
