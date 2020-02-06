@@ -19,6 +19,7 @@ const client = new Client({
 });
 
 client.connect();
+var PORT = process.env.PORT || 3000;
 
 
 
@@ -208,7 +209,7 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.listen(3000, function(){
+app.listen(PORT, function(){
     console.log("[*] Server in ascolto sulla porta 3000");
 });
 
