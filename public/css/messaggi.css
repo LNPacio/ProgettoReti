@@ -56,6 +56,10 @@ input[type=submit] {
 	position: abslolute;
 }
 
+main{
+	position: fixed;
+}
+
 
 
 /*Chat box*/
