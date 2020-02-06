@@ -155,7 +155,7 @@ function insertChat(who, text, time = 0){
     }
     setTimeout(
         function(){                        
-            $("ul").append(control);
+            $("ul").append(control).scrollTop($("ul").prop("scrollHeight"));
 
         }, time);
     
