@@ -6,7 +6,6 @@ body {
   /*the container must be positioned relative:*/
   position: relative;
   display: inline-block;
-  top: 50px;
 }
 input {
   border: 1px solid transparent;
