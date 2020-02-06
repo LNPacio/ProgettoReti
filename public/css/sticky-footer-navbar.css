@@ -58,9 +58,9 @@ code {
   color: white;
 }
 .m{
-  position: absolute;
+  position: relative;
     width: 450px;
-    height: 88%;
+    height: 200px;
     top: 20px;
-    left : 50%;
+    left : 500px;
 }
