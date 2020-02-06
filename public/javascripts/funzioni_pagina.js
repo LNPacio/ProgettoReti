@@ -224,7 +224,7 @@ var map = new H.Map(document.getElementById('map'),
   pixelRatio: window.devicePixelRatio || 1
 });
 
-var map2 = new H.Map(document.getElementById('map'),
+var map2 = H.Map(document.getElementById('map'),
   defaultLayers.vector.normal.map,{
   center: {lat:41.9109, lng:12.4818},
   zoom: 2,
