@@ -95,11 +95,12 @@ input[type=submit] {
     height:450px;
     overflow:hidden;
     padding:0;
+    left: 50%;
 }
 .frame > div:last-of-type{
     position:absolute;bottom:5px;width:100%;display:flex;
 }
-ul {
+.chatBox {
     width:100%;
     list-style-type: none;
     padding:18px;
