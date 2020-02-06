@@ -20,7 +20,7 @@ const client = new Client({
 
 client.connect();
 
-var http = require('https').Server(app);
+var https = require('https').Server(app);
 var io = require('socket.io')(https);
 
 
