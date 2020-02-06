@@ -40,11 +40,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/users',express.static(path.join(__dirname, 'public')));
 app.use('/dist/js',express.static(path.join(__dirname, 'public/javascripts')));
 
-io.use(function(socket, next) {
-    sessionMiddleware(socket.request, socket.request.res, next);
-});
 
-app.use(sessionMiddleware);
 
 
 /*************************************************************************************** 
@@ -52,7 +48,7 @@ app.use(sessionMiddleware);
  ***************************************************************************************/
 
 io.on('connection', function(socket){
-	 var email = socket.request.session.email;
+	 //var email = socket.request.session.email;
 	 
 	 socket.emit('message', 'Sei connesso amico!');
 });
