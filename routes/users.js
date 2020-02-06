@@ -25,6 +25,15 @@ router.get('/profile', function(req, res, next) {
 		}
 });
 
+router.get('/messaggi', function(req, res, next) {
+		if(req.session.email) {
+			res.render('messaggi', {name: req.session.name, surname: req.session.surname});
+		}
+		else{
+			res.redirect('/signin');
+		}
+});
+
 router.get('/logout',(req,res) => {
     req.session.destroy((err) => {
         if(err) {
