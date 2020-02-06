@@ -150,30 +150,17 @@ $(document).ready(function(){
 });
 
 
-
-
-
 /**
- * Calculates and displays the address details of 200 S Mathilda Ave, Sunnyvale, CA
- * based on a free-form text
- *
- *
- * A full list of available request parameters can be found in the Geocoder API documentation.
- * see: http://developer.here.com/rest-apis/documentation/geocoder/topics/resource-geocode.html
+ *    FUNZIONI PER GEOLOCALIZZARE CITTÀ
  *
  * @param   {H.service.Platform} platform    A stub class to access HERE services
  */
-
-
-
 function geocode(platform) {
-  
   var geocoder = platform.getGeocodingService(),
     geocodingParameters = {
       searchText: ''+name_city_cap,
       jsonattributes : 1
     };
-
   geocoder.geocode(
     geocodingParameters,
     onSuccess,
@@ -184,17 +171,11 @@ function geocode(platform) {
  * This function will be called once the Geocoder REST API provides a response
  * @param  {Object} result          A JSONP object representing the  location(s) found.
  *
- * see: http://developer.here.com/rest-apis/documentation/geocoder/topics/resource-type-response-geocode.html
+ * 
  */
 function onSuccess(result) {
   var locations = result.response.view[0].result;
- /*
-  * The styling of the geocoding response on the map is entirely under the developer's control.
-  * A representitive styling can be found the full JS + HTML code of this example
-  * in the functions below:
-  */
   addLocationsToMap(locations);
-  // ... etc.
 }
 
 /**
@@ -205,12 +186,7 @@ function onError(error) {
   alert('Can\'t reach the remote server');
 }
 
-/**
- * Boilerplate map initialization code starts below:
- */
-
 //Step 1: initialize communication with the platform
-// In your own code, replace variable window.apikey with your own apikey
 var platform = new H.service.Platform({
   apikey: window.apikey
 });
@@ -224,11 +200,6 @@ var map = new H.Map(document.getElementById('map'),
   pixelRatio: window.devicePixelRatio || 1
 });
 
-// add a resize listener to make sure that the map occupies the whole container
-//window.addEventListener('resize', () => map.getViewPort().resize());
-
-//var locationsContainer = document.getElementById('panel');
-
 //Step 3: make the map interactive
 // MapEvents enables the event system
 // Behavior implements default interactions for pan/zoom (also on mobile touch environments)
@@ -239,14 +210,13 @@ var ui = H.ui.UI.createDefault(map, defaultLayers);
 
 /**
  * Creates a series of H.map.Markers for each location found, and adds it to the map.
- * @param {Object[]} locations An array of locations as received from the
- *                             H.service.GeocodingService
+ * @param {Object[]} locations 
  */
+
 function addLocationsToMap(locations){
   var group = new  H.map.Group(),
     position,
     i;
-
   // Add a marker for each location found
   for (i = 0;  i < locations.length; i += 1) {
     position = {
@@ -269,12 +239,8 @@ function addLocationsToMap(locations){
   map.setCenter(group.getBoundingBox().getCenter());
 }
 
-// Now use the map as required...
-//geocode(platform);
-
-
-
 function individua(){
   geocode(platform);
 }
 
+//FINE FUNZIONI MAPPA
