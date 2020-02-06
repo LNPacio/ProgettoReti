@@ -20,7 +20,9 @@ const client = new Client({
 
 client.connect();
 
-var io = require('socket.io')(app);
+var http = require('http');
+var server = http.createServer(app);
+var io = require('socket.io').listen(server);
 
 
 //cookie//////////////////////////////
