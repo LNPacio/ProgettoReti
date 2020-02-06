@@ -217,14 +217,14 @@ var platform = new H.service.Platform({
 var defaultLayers = platform.createDefaultLayers();
 
 //Step 2: initialize a map - this map is centered over California
-var map = new H.Map(document.getElementById('map'),
+var map =  H.Map(document.getElementById('map'),
   defaultLayers.vector.normal.map,{
   center: {lat:41.9109, lng:12.4818},
   zoom: 12,
   pixelRatio: window.devicePixelRatio || 1
 });
 
-var map2 = H.Map(document.getElementById('map'),
+var map2 = new H.Map(document.getElementById('map'),
   defaultLayers.vector.normal.map,{
   center: {lat:41.9109, lng:12.4818},
   zoom: 2,
