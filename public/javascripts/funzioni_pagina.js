@@ -249,7 +249,7 @@ var ui = H.ui.UI.createDefault(map2, defaultLayers);
  *                             H.service.GeocodingService
  */
 function addLocationsToMap(locations){
-  var group = new  H.map.Group(),
+  var group = new  H.map2.Group(),
     position,
     i;
 
@@ -259,20 +259,20 @@ function addLocationsToMap(locations){
       lat: locations[i].location.displayPosition.latitude,
       lng: locations[i].location.displayPosition.longitude
     };
-    marker = new H.map.Marker(position);
+    marker = new H.map2.Marker(position);
     marker.label = locations[i].location.address.label;
     group.addObject(marker);
   }
 
   group.addEventListener('tap', function (evt) {
-    map.setCenter(evt.target.getGeometry());
+    map2.setCenter(evt.target.getGeometry());
     openBubble(
        evt.target.getGeometry(), evt.target.label);
   }, false);
 
   // Add the locations group to the map
-  map.addObject(group);
-  map.setCenter(group.getBoundingBox().getCenter());
+  map2.addObject(group);
+  map2.setCenter(group.getBoundingBox().getCenter());
 }
 
 // Now use the map as required...
