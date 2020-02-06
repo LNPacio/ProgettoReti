@@ -169,7 +169,7 @@ function geocode(platform) {
   
   var geocoder = platform.getGeocodingService(),
     geocodingParameters = {
-      searchText: 'Anzio,IT',
+      searchText: name_city_cap,
       jsonattributes : 1
     };
 
