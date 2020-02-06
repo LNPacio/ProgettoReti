@@ -104,9 +104,10 @@ $(document).ready(function(){
         if(msg.errore) alert("Errore");
         else{
 			for(var utente of msg)
-				listaUtenti.push(utente.nome+' '+utente.cognome+', '+utente.email);
+				listaUtenti.push(utente.name+' '+utente.surname+', '+utente.email);
 		}
         });
+        alert("Lista utenti caricata");
         
 	autocomplete(document.getElementById("myInput"), listaUtenti);
 });
