@@ -35,7 +35,6 @@ function onSuccess(result) {
   * in the functions below:
   */
   addLocationsToMap(locations);
-  addLocationsToPanel(locations);
   // ... etc.
 }
 
