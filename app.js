@@ -20,8 +20,7 @@ const client = new Client({
 
 client.connect();
 
-var https = require('https').Server(app);
-var io = require('socket.io')(https);
+var io = require('socket.io').listen(app);
 
 
 //cookie//////////////////////////////
@@ -47,7 +46,7 @@ app.use('/dist/js',express.static(path.join(__dirname, 'public/javascripts')));
  * WEB SOCKET                                                                          *
  ***************************************************************************************/
 
-io.socket.on('connection', function(socket){
+io.on('connection', function(socket){
 	 //var email = socket.request.session.email;
 	 
 	 socket.emit('message', 'Sei connesso amico!');
