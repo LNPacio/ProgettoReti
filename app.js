@@ -160,7 +160,7 @@ app.get('/showUsersCities', function(req, res, next) {
 app.get('/getListaUtenti', function(req, res, next) {
 		var email = sess.email;
 		
-		client.query('SELECT nome, cognome, email from utenti where email != $1', [email], (err, response) => {
+		client.query('SELECT nome, cognome, email from utente where email != $1', [email], (err, response) => {
 		if (err) throw err;
 		
 		res.send(response.rows);
