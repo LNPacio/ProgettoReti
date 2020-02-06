@@ -8,6 +8,7 @@
     <link rel="shortcut icon" href="images/favicon_2.ico?1" />
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" lang="javascript" src="javascripts/messaggi.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
     <link href="css/messaggi.css" rel="stylesheet">
     
 
@@ -74,7 +75,6 @@
             </div>
 			</div>
 		</main>
-		<script type="text/javascript" src="/socket.io/socket.io.js"></script>
 	<script>
 		var socket = io();
 		socket.on('message', function(message) {
