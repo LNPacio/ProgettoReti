@@ -155,14 +155,14 @@ function insertChat(who, text, time = 0){
     }
     setTimeout(
         function(){                        
-            $("ul").append(control).scrollTop($("ul").prop("scrollHeight"));
+            $("#chatBox").append(control).scrollTop($("#chatBox").prop("scrollHeight"));
 
         }, time);
     
 }
 
 function resetChat(){
-    $("ul").empty();
+    $("#chatBox").empty();
 }
 
 $(".mytext").on("keyup", function(e){
