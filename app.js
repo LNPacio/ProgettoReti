@@ -20,7 +20,9 @@ const client = new Client({
 
 client.connect();
 
-var io = require('socket.io').listen(server);
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+
 
 //cookie//////////////////////////////
 app.use(session({secret: 'ssshhhhh',saveUninitialized: true,resave: true}));
