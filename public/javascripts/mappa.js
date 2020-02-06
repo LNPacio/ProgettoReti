@@ -13,10 +13,10 @@ function mostra_città(){
 }
 
 function geocode(platform) {
-  alert(document.getElementById("infocitta"));
+  
   var geocoder = platform.getGeocodingService(),
     geocodingParameters = {
-      searchText: document.getElementById("infocitta").value,
+      searchText: 'Anzio,IT',
       jsonattributes : 1
     };
 

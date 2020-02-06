@@ -41,7 +41,7 @@ ref.innerHTML=giorno+ " " + date + " " + mese + " " + year + " " + ora+":"+minut
 window.setTimeout("updateDate()",1000);
 }
 
-var map;
+/*var map;
 var geocoder;
 
 function initMap() {
@@ -66,10 +66,10 @@ function codeAddress() {
       }
     });
  
-  }
+  }*/
 
   var cityNameSelect ='';
-
+  var name_city_cap = '';
 
   function clientOpenWeather(){
     var valueToReturn = null;
@@ -89,6 +89,8 @@ function codeAddress() {
       }
       document.getElementById("infocitta").innerHTML = "City: " + responseObject.city.name + " (" + responseObject.city.country + ")"; 
       cityNameSelect = responseObject.city.name;
+      name_city_cap = responseObject.city.name + ','+responseObject.city.country;
+      alert(name_city_cap);
       var returnObject = {};
       var list = responseObject.list;
       for (var item of list){
@@ -147,4 +149,6 @@ $(document).ready(function(){
         });
 	});
 });
+
+
 
