@@ -20,8 +20,8 @@ const client = new Client({
 
 client.connect();
 
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
+var http = require('https').Server(app);
+var io = require('socket.io')(https);
 
 
 //cookie//////////////////////////////
