@@ -217,19 +217,13 @@ var platform = new H.service.Platform({
 var defaultLayers = platform.createDefaultLayers();
 
 //Step 2: initialize a map - this map is centered over California
-var map =  H.Map(document.getElementById('map'),
+var map = new H.Map(document.getElementById('map'),
   defaultLayers.vector.normal.map,{
   center: {lat:41.9109, lng:12.4818},
   zoom: 12,
   pixelRatio: window.devicePixelRatio || 1
 });
 
-var map2 = new H.Map(document.getElementById('map'),
-  defaultLayers.vector.normal.map,{
-  center: {lat:41.9109, lng:12.4818},
-  zoom: 2,
-  pixelRatio: window.devicePixelRatio || 1
-});
 // add a resize listener to make sure that the map occupies the whole container
 //window.addEventListener('resize', () => map.getViewPort().resize());
 
@@ -238,10 +232,10 @@ var map2 = new H.Map(document.getElementById('map'),
 //Step 3: make the map interactive
 // MapEvents enables the event system
 // Behavior implements default interactions for pan/zoom (also on mobile touch environments)
-var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map2));
+var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
 
 // Create the default UI components
-var ui = H.ui.UI.createDefault(map2, defaultLayers);
+var ui = H.ui.UI.createDefault(map, defaultLayers);
 
 /**
  * Creates a series of H.map.Markers for each location found, and adds it to the map.
@@ -249,7 +243,7 @@ var ui = H.ui.UI.createDefault(map2, defaultLayers);
  *                             H.service.GeocodingService
  */
 function addLocationsToMap(locations){
-  var group = new  H.map2.Group(),
+  var group = new  H.map.Group(),
     position,
     i;
 
@@ -259,20 +253,20 @@ function addLocationsToMap(locations){
       lat: locations[i].location.displayPosition.latitude,
       lng: locations[i].location.displayPosition.longitude
     };
-    marker = new H.map2.Marker(position);
+    marker = new H.map.Marker(position);
     marker.label = locations[i].location.address.label;
     group.addObject(marker);
   }
 
   group.addEventListener('tap', function (evt) {
-    map2.setCenter(evt.target.getGeometry());
+    map.setCenter(evt.target.getGeometry());
     openBubble(
        evt.target.getGeometry(), evt.target.label);
   }, false);
 
   // Add the locations group to the map
-  map2.addObject(group);
-  map2.setCenter(group.getBoundingBox().getCenter());
+  map.addObject(group);
+  map.setCenter(group.getBoundingBox().getCenter());
 }
 
 // Now use the map as required...
