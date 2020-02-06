@@ -208,7 +208,7 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-http.listen(3000, function(io){
+app.listen(3000, function(){
     console.log("[*] Server in ascolto sulla porta 3000");
 });
 
