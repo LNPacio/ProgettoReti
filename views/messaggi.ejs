@@ -74,12 +74,15 @@
             </div>
 			</div>
 		</main>
-		<script src="/socket.io/socket.io.js"></script>
 	<script>
-		var socket = io.connect('https://hidden-fjord-76821.herokuapp.com');
-		socket.on('message', function(message) {
-		alert('Il server dice: ' + message);
+		var socket = io();
+		var el;
+
+		socket.on('time', function(timeString) {
+		el = document.getElementById('server-time')
+		el.innerHTML = 'Server time: ' + timeString;
 		});
+
     </script>
     </body>
 </html>
