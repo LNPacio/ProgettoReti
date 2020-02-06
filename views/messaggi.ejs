@@ -76,7 +76,7 @@
 			</div>
 		</main>
 	<script>
-		var socket = io();
+		var socket = io('https://hidden-fjord-76821.herokuapp.com/users/messaggi:3000');
 		socket.on('message', function(message) {
 		alert('Il server dice: ' + message);
 		});
