@@ -60,7 +60,7 @@ code {
 .map{
   width: 50%;
   height: 88%;
-  position: relative;
+  position: absolute;
   top: 20px;
   left: 50%;
 }
