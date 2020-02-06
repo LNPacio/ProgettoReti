@@ -54,7 +54,6 @@ input[type=submit] {
 .ricerca{
 	width: 30%;
 	position: abslolute;
-	background-color : red;
 }
 
 
@@ -102,7 +101,6 @@ input[type=submit] {
     padding:0;
     left: 50%;
     top:-100px;
-    background-color : green;
 }
 .frame > div:last-of-type{
     position:absolute;bottom:5px;width:100%;display:flex;
