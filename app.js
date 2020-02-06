@@ -146,13 +146,23 @@ app.post('/remove_city', function(req,res){
 //popolazione lista città in profilo
 app.get('/showUsersCities', function(req, res, next) {
 		var email = sess.email;
-		//var cityList = [];
+		
 		client.query('SELECT città from luoghi where email = $1', [email], (err, response) => {
 		if (err) throw err;
 		
-		//for(var i = 0; i < response.rows.length; i++){
-		//	cityList.push(response.rows[i]);
-		//}
+		res.send(response.rows);
+		});
+		
+});
+
+
+//popolazione barra ricerca utenti
+app.get('/getListaUtenti', function(req, res, next) {
+		var email = sess.email;
+		
+		client.query('SELECT nome, cognome, email from utenti where email != $1', [email], (err, response) => {
+		if (err) throw err;
+		
 		res.send(response.rows);
 		});
 		
