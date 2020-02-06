@@ -48,7 +48,7 @@ app.use('/dist/js',express.static(path.join(__dirname, 'public/javascripts')));
  * WEB SOCKET                                                                          *
  ***************************************************************************************/
 
-io.socket.on('connection', function(socket){
+io.on('connection', function(socket){
 	 //var email = socket.request.session.email;
 	 
 	 socket.emit('message', 'Sei connesso amico!');
