@@ -7,7 +7,8 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="images/favicon_2.ico?1" />
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script type="text/javascript" lang="javascript" src="javascripts/funzioni_pagina.js"></script>
+    <script type="text/javascript" lang="javascript" src="javascripts/messaggi.js"></script>
+    <link href="css/messaggi.css" rel="stylesheet">
     
 
     <title>Nome_Progetto</title>
@@ -50,5 +51,15 @@
         </div>
       </nav>
     </header>
+    <div>
+	</div>
+		Cerca utente:
+		<!--Make sure the form has the autocomplete function switched off:-->
+		<form autocomplete="off" action="/action_page.php">
+			<div class="autocomplete" style="width:300px;">
+				<input id="myInput" type="text" name="myCountry" placeholder="Country">
+			</div>
+			<input type="submit">
+		</form>
     </body>
 </html>
