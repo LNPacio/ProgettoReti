@@ -8,6 +8,10 @@
  *
  * @param   {H.service.Platform} platform    A stub class to access HERE services
  */
+function mostra_città(){
+  geocode(platform);
+}
+
 function geocode(platform) {
   var geocoder = platform.getGeocodingService(),
     geocodingParameters = {
