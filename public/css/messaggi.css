@@ -101,7 +101,7 @@ input[type=submit] {
     padding:0;
     left: 50%;
     top:-100px;
-    position
+    background-color : green;
 }
 .frame > div:last-of-type{
     position:absolute;bottom:5px;width:100%;display:flex;
