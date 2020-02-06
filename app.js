@@ -40,6 +40,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/users',express.static(path.join(__dirname, 'public')));
 app.use('/dist/js',express.static(path.join(__dirname, 'public/javascripts')));
 
+io.use(function(socket, next) {
+    sessionMiddleware(socket.request, socket.request.res, next);
+});
+
+app.use(sessionMiddleware);
+
 
 /*************************************************************************************** 
  * WEB SOCKET                                                                          *
