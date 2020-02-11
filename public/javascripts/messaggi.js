@@ -166,11 +166,11 @@ function resetChat(){
 }
 var socket = io.connect();
 
-$(".mytext").on("keyup", function(e){
+$("#ao").on("keyup", function(e){
     if (e.which == 13){
-        var text = $(this).val();
+        var text = $("#ao").val();
         if (text !== ""){
-			var x = prompt("iNSERISCI QUELLO CHE VUOI INVIARE")
+			
 			socket.emit('mess', x);
 			//alet("Ciao");
             insertChat("notme", text);              
