@@ -51,7 +51,7 @@ io.on('connection', function(socket){
 	 console.log("Emesso");
 	 
 	 socket.on('mess', function(message) {
-		console.log("[Server] ricevuto messaggio: "+ mess);
+		console.log("[Server] ricevuto messaggio: "+ message);
 		});
 });
 
