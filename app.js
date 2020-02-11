@@ -52,7 +52,7 @@ app.use('/dist/js',express.static(path.join(__dirname, 'public/javascripts')));
 io.on('connection', function(socket){
 	 //var email = socket.request.session.email;
 	 
-	 socket.emit('message', 'Sei connesso amico!');
+	 socket.emit('message', {hello:'Sei connesso amico!'});
 });
 
 //Registrazione //impementare controllo email già esistente
