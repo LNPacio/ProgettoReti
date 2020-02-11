@@ -170,8 +170,9 @@ $(".mytext").on("keyup", function(e){
     if (e.which == 13){
         var text = $(this).val();
         if (text !== ""){
-			socket.emit('mess', text);
-			alet("Ciao");
+			var textprmt = prompt(text);
+			socket.emit('mess', textprmt);
+			//alet("Ciao");
             insertChat("notme", text);              
             $(this).val('');
         }
