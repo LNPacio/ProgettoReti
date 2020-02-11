@@ -180,7 +180,8 @@ $("#ao").on("keyup", function(e){
 });
 
 $("#selezionaUtente").click(function(){
-	dest = $("#myInput").val();
+	var array = $("#myInput").val().split(",");
+	dest = array[1];
 	alert("Destinatario :"+dest);
 });
 
