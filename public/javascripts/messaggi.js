@@ -164,11 +164,13 @@ function insertChat(who, text, time = 0){
 function resetChat(){
     $("#chatBox").empty();
 }
+var socket = io.connect();
 
 $(".mytext").on("keyup", function(e){
     if (e.which == 13){
         var text = $(this).val();
         if (text !== ""){
+			
             insertChat("notme", text);              
             $(this).val('');
         }
@@ -182,7 +184,7 @@ resetChat();
 //insertChat("me", "Hello Tom...", 0);  
 
 //-- NOTE: No use time on insertChat.
-var socket = io.connect();
+
 		
 		socket.on('message', function(message) {
 			insertChat("me", message, 0);
