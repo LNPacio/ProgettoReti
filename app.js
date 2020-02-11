@@ -22,8 +22,11 @@ client.connect();
 
 
 
-var http = require('http').Server(app);
-var io = require('socket.io').listen(http);
+/*var http = require('http').Server(app);
+var io = require('socket.io').listen(http);*/
+var http = require('http');
+var server = http.createServer(app);
+var io = require('socket.io')(server);
 
 
 //cookie//////////////////////////////
@@ -209,7 +212,7 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.listen(3000, function(){
+server.listen(3000, function(){
     console.log("[*] Server in ascolto sulla porta 3000");
 });
 
