@@ -170,9 +170,7 @@ $("#ao").on("keyup", function(e){
     if (e.which == 13){
         var text = $("#ao").val();
         if (text !== ""){
-			alert("Ciao1");
 			socket.emit('mess', text);
-			alert("Ciao");
             insertChat("notme", text);              
             $(this).val('');
         }
