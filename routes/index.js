@@ -18,5 +18,4 @@ router.get('/signup', function(req, res, next) {
   res.render('registrazione');
 });
 
-
 module.exports = router;
