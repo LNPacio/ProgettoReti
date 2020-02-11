@@ -21,9 +21,7 @@ const client = new Client({
 client.connect();
 
 
-var server = app.listen(3000);
-//var http = require('http').Server(app);
-var io = require('socket.io').listen(server);
+
 
 
 //cookie//////////////////////////////
@@ -48,6 +46,7 @@ app.use('/dist/js',express.static(path.join(__dirname, 'public/javascripts')));
 /*************************************************************************************** 
  * WEB SOCKET                                                                          *
  ***************************************************************************************/
+
 
 
 //Registrazione //impementare controllo email già esistente

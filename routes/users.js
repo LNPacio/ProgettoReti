@@ -48,5 +48,11 @@ router.get('/logout',(req,res) => {
     });
 });
 
+io.on('connection', function(socket){
+	 //var email = socket.request.session.email;
+	 
+	 socket.emit('message', 'Sei connesso amico!');
+});
+
 
 module.exports = router;
