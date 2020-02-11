@@ -165,11 +165,19 @@ function resetChat(){
     $("#chatBox").empty();
 }
 
+//-- NOTE: No use time on insertChat.
+var socket = io.connect();
+		
+		socket.on('message', function(message) {
+			insertChat("me", message, 0);
+		});
+
 $(".mytext").on("keyup", function(e){
     if (e.which == 13){
         var text = $(this).val();
         if (text !== ""){
-            insertChat("me", text);              
+			socket.emit('message', 'Ciao, sono un clent!');
+			insertChat("notme", message, 0);          
             $(this).val('');
         }
     }
@@ -181,12 +189,7 @@ resetChat();
 //-- Print Messages
 //insertChat("me", "Hello Tom...", 0);  
 
-//-- NOTE: No use time on insertChat.
-var socket = io.connect();
-		
-		socket.on('message', function(message) {
-			insertChat("me", message, 0);
-		});
+
 });
 
 
