@@ -173,6 +173,7 @@ $("#ao").on("keyup", function(e){
 			socket.emit('mess', text);
             insertChat("notme", text);              
             $(this).val('');
+        
         }
     }
 });
