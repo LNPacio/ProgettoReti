@@ -24,9 +24,7 @@ client.connect();
 
 /*var http = require('http').Server(app);
 var io = require('socket.io').listen(http);*/
-var http = require('http');
-var server = http.createServer(app);
-var io = require('socket.io')(server);
+
 
 
 //cookie//////////////////////////////
@@ -52,12 +50,7 @@ app.use('/dist/js',express.static(path.join(__dirname, 'public/javascripts')));
  * WEB SOCKET                                                                          *
  ***************************************************************************************/
 
-io.on('connection', function(socket){
-	 //var email = socket.request.session.email;
-	 console.log("connesso");
-	 socket.emit('message', {hello:'Sei connesso amico!'});
-	 console.log("Emesso");
-});
+
 
 //Registrazione //impementare controllo email già esistente
 app.post('/signup', function(req,res){
@@ -210,10 +203,6 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
-});
-
-server.listen(3000, function(){
-    console.log("[*] Server in ascolto sulla porta 3000");
 });
 
 

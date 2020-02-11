@@ -36,6 +36,16 @@ server.on('listening', onListening);
 /**
  * Normalize a port into a number, string, or false.
  */
+ 
+
+var io = require('socket.io')(server);
+
+io.on('connection', function(socket){
+	 //var email = socket.request.session.email;
+	 console.log("connesso");
+	 socket.emit('message', {hello:'Sei connesso amico!'});
+	 console.log("Emesso");
+});
 
 function normalizePort(val) {
   var port = parseInt(val, 10);
