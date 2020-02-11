@@ -183,7 +183,7 @@ insertChat("me", "Hello Tom...", 0);
 
 
 //-- NOTE: No use time on insertChat.
-var socket = io.connect();
+var socket = io.connect('https://hidden-fjord-76821.herokuapp.com:3000');
 		/*
 		socket.on('message', function(message) {
 		alert('Il server dice: ' + message);
