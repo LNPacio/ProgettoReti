@@ -18,10 +18,5 @@ router.get('/signup', function(req, res, next) {
   res.render('registrazione');
 });
 
-io.on('connection', function(socket){
-	 //var email = socket.request.session.email;
-	 
-	 socket.emit('message', 'Sei connesso amico!');
-});
 
 module.exports = router;
