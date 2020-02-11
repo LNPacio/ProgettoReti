@@ -165,22 +165,14 @@ function resetChat(){
     $("#chatBox").empty();
 }
 
-//-- NOTE: No use time on insertChat.
-var socket = io.connect();
-
 $(".mytext").on("keyup", function(e){
     if (e.which == 13){
         var text = $(this).val();
         if (text !== ""){
-			socket.emit('mes', 'Ciao, sono un clent!');
-			insertChat("notme", message, 0);          
+            insertChat("me", text);              
             $(this).val('');
         }
     }
-});
-
-socket.on('message', function(message) {
-	insertChat("me", message, 0);
 });
 
 //-- Clear Chat
@@ -189,7 +181,12 @@ resetChat();
 //-- Print Messages
 //insertChat("me", "Hello Tom...", 0);  
 
-
+//-- NOTE: No use time on insertChat.
+var socket = io.connect();
+		
+		socket.on('message', function(message) {
+			insertChat("me", message, 0);
+		});
 });
 
 
