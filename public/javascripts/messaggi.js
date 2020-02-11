@@ -169,7 +169,7 @@ $(".mytext").on("keyup", function(e){
     if (e.which == 13){
         var text = $(this).val();
         if (text !== ""){
-            insertChat("me", text);              
+            insertChat("notme", text);              
             $(this).val('');
         }
     }
