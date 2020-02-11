@@ -165,7 +165,6 @@ function resetChat(){
     $("#chatBox").empty();
 }
 var socket = io.connect();
-var dest;
 
 $("#ao").on("keyup", function(e){
     if (e.which == 13){
@@ -177,6 +176,8 @@ $("#ao").on("keyup", function(e){
         
         }
     }
+
+});
 
 $("#selezionaUtente").click(function(){
 	dest = $("#myInput").val();
@@ -196,6 +197,7 @@ resetChat();
 			insertChat("me", message, 0);
 		});
 });
+
 
 
 
