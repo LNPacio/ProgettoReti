@@ -168,15 +168,15 @@ function resetChat(){
 //-- NOTE: No use time on insertChat.
 var socket = io.connect();
 		
-		socket.on('message', function(message) {
-			insertChat("me", message, 0);
-		});
+socket.on('message', function(message) {
+	insertChat("me", message, 0);
+});
 
 $(".mytext").on("keyup", function(e){
     if (e.which == 13){
         var text = $(this).val();
         if (text !== ""){
-			socket.emit('message', 'Ciao, sono un clent!');
+			socket.emit('mes', 'Ciao, sono un clent!');
 			insertChat("notme", message, 0);          
             $(this).val('');
         }
