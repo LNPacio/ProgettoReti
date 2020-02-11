@@ -53,6 +53,7 @@ io.on('connection', function(socket){
 	 //var email = socket.request.session.email;
 	 
 	 socket.emit('message', {hello:'Sei connesso amico!'});
+	 console.log("Emesso");
 });
 
 //Registrazione //impementare controllo email già esistente
