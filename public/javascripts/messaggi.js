@@ -182,7 +182,6 @@ $("#ao").on("keyup", function(e){
 $("#selezionaUtente").click(function(){
 	var array = $("#myInput").val().split(",");
 	dest = array[1];
-	alert("Destinatario :"+dest);
 });
 
 //-- Clear Chat
