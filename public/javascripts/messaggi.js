@@ -181,7 +181,6 @@ resetChat();
 //-- Print Messages
 //insertChat("me", "Hello Tom...", 0);  
 
-
 //-- NOTE: No use time on insertChat.
 var socket = io.connect();
 		
