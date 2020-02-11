@@ -167,10 +167,6 @@ function resetChat(){
 
 //-- NOTE: No use time on insertChat.
 var socket = io.connect();
-		
-socket.on('message', function(message) {
-	insertChat("me", message, 0);
-});
 
 $(".mytext").on("keyup", function(e){
     if (e.which == 13){
@@ -181,6 +177,10 @@ $(".mytext").on("keyup", function(e){
             $(this).val('');
         }
     }
+});
+
+socket.on('message', function(message) {
+	insertChat("me", message, 0);
 });
 
 //-- Clear Chat
