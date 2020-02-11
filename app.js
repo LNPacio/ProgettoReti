@@ -49,11 +49,6 @@ app.use('/dist/js',express.static(path.join(__dirname, 'public/javascripts')));
  * WEB SOCKET                                                                          *
  ***************************************************************************************/
 
-io.on('connection', function(socket){
-	 //var email = socket.request.session.email;
-	 
-	 socket.emit('message', 'Sei connesso amico!');
-});
 
 //Registrazione //impementare controllo email già esistente
 app.post('/signup', function(req,res){

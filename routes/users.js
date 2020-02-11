@@ -2,6 +2,11 @@ var express = require('express');
 var router = express.Router();
 var session = require('express-session');
 
+var app = express();
+var server = app.listen(3000);
+//var http = require('http').Server(app);
+var io = require('socket.io').listen(server);
+
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
