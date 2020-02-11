@@ -49,6 +49,10 @@ io.on('connection', function(socket){
 	 console.log("connesso");
 	 socket.emit('message', 'Sei connesso amico!');
 	 console.log("Emesso");
+	 
+	 socket.on('mess', function(message) {
+		console.log("[Server] ricevuto messaggio: "+ mess);
+		});
 });
 
 function normalizePort(val) {

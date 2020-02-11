@@ -179,14 +179,14 @@ $(".mytext").on("keyup", function(e){
 resetChat();
 
 //-- Print Messages
-insertChat("me", "Hello Tom...", 0);  
+//insertChat("me", "Hello Tom...", 0);  
 
 
 //-- NOTE: No use time on insertChat.
 var socket = io.connect();
 		
 		socket.on('message', function(message) {
-		alert('Il server dice: ' + message);
+			insertChat("me", message, 0);
 		});
 });
 
