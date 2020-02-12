@@ -56,7 +56,7 @@ var io = require('socket.io')(server);
 io.on('connection', function(socket){
 	 //var email = socket.request.session.email;
 	 console.log("connesso");
-	 socket.emit('message', {mittente : 'Server', mex : 'Sei connesso amico!'});
+	 socket.emit('message', {mitt : "Server", mex : "Sei connesso amico!"});
 	 console.log("Emesso");
 	 
 	 socket.on('mess', function(message) {
