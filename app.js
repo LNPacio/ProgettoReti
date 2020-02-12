@@ -63,7 +63,7 @@ io.on('connection', function(socket){
 		console.log("[Server] ricevuto messaggio: "+ message);
 		
 		//var mittente = socket.request.session.email;
-		socket.emit('message', message);
+		socket.broadcast.emit('message', message);
 		console.log("[Server] messaggio emesso: "+ message);
 		});   
 });
