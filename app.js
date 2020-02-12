@@ -27,9 +27,7 @@ var io = require('socket.io').listen(http);*/
 
 
 
-//cookie//////////////////////////////
-app.use(session({secret: 'ssshhhhh',saveUninitialized: true,resave: true}));
-var sess;
+
 ///////////////////////////////////////////////
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -52,6 +50,10 @@ var io = require('socket.io')(server);
 io.use(function(socket, next) {
     session(socket.request, socket.request.res, next);
 });
+
+//cookie//////////////////////////////
+app.use(session({secret: 'ssshhhhh',saveUninitialized: true,resave: true}));
+var sess;
 
 /*************************************************************************************** 
  * WEB SOCKET                                                                          *
