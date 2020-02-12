@@ -47,9 +47,22 @@ var http = require('http');
 var server = http.createServer(app);
 
 
+var io = require('socket.io')(server);
+
 /*************************************************************************************** 
  * WEB SOCKET                                                                          *
  ***************************************************************************************/
+
+io.on('connection', function(socket){
+	 //var email = socket.request.session.email;
+	 console.log("connesso");
+	 socket.emit('message', 'Sei connesso amico!');
+	 console.log("Emesso");
+	 
+	 socket.on('mess', function(message) {
+		console.log("[Server] ricevuto messaggio: "+ message);
+		});   
+});
  
 
 
