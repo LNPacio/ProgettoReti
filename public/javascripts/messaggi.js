@@ -194,7 +194,7 @@ resetChat();
 
 		
 		socket.on('message', function(message) {
-			txt = message.mitt + " ha scritto: " + message.mex;
+			txt = JSON.stringify(message.mitt) + " ha scritto: " + JSON.stringify(message.mex);
 			insertChat("me", txt, 0);
 		});
 });
