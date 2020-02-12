@@ -25,7 +25,12 @@ client.connect();
 /*var http = require('http').Server(app);
 var io = require('socket.io').listen(http);*/
 
-
+//cookie//////////////////////////////
+var sessionMiddleware = session({
+    key: 'user_sid',
+    secret: 'ssshhhhh'
+});
+var sess;
 
 
 ///////////////////////////////////////////////
@@ -48,12 +53,11 @@ var server = http.createServer(app);
 var io = require('socket.io')(server);
 
 io.use(function(socket, next) {
-    session(socket.request, socket.request.res, next);
+    sessionMiddleware(socket.request, socket.request.res, next);
 });
 
-//cookie//////////////////////////////
-app.use(session({secret: 'ssshhhhh',saveUninitialized: true,resave: true}));
-var sess;
+app.use(sessionMiddleware);
+
 
 /*************************************************************************************** 
  * WEB SOCKET                                                                          *
