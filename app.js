@@ -58,7 +58,7 @@ io.on('connection', function(socket){
 	 console.log("connesso");
 	 socket.emit('message', {mittente : 'Server', mex : 'Sei connesso amico!'});
 	 console.log("Emesso");
-	 
+	  
 	 socket.on('mess', function(message) {
 		console.log("[Server] ricevuto messaggio: "+ message);
 		
