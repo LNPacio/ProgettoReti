@@ -49,6 +49,10 @@ var server = http.createServer(app);
 
 var io = require('socket.io')(server);
 
+io.use(function(socket, next) {
+    session(socket.request, socket.request.res, next);
+});
+
 /*************************************************************************************** 
  * WEB SOCKET                                                                          *
  ***************************************************************************************/
