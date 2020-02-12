@@ -64,17 +64,17 @@ app.use(sessionMiddleware);
  ***************************************************************************************/
 
 io.on('connection', function(socket){
-	 //var email = socket.request.session.email;
+	 var email = socket.request.session.email;
 	 console.log("connesso");
-	 socket.emit('message', 'Sei connesso amico!');
+	 socket.emit('message', {mitt:"Server", txt: email});
 	 console.log("Emesso");
 	  
 	 socket.on('mess', function(message) {
 		console.log("[Server] ricevuto messaggio: "+ message);
 		
-		var mittente = socket.request.session.email;
+		/*var mittente = socket.request.session.email;
 		socket.emit('message', mittente);
-		console.log("[Server] messaggio emesso: "+ mittente);
+		console.log("[Server] messaggio emesso: "+ mittente);*/
 		});   
 });
  

@@ -194,6 +194,7 @@ resetChat();
 
 		
 		socket.on('message', function(message) {
+			text = message.mitt + message.txt
 			insertChat("me", message, 0);
 		});
 });
