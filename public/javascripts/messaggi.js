@@ -194,7 +194,7 @@ resetChat();
 
 		
 		socket.on('message', function(message) {
-			text = message.mitt + message.txt
+			text = message.mitt +": dice la tua email è:"+message.txt
 			insertChat("me", message, 0);
 		});
 });
