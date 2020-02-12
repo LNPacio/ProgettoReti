@@ -4,11 +4,12 @@
  * Module dependencies.
  */
 
-var app = require('../app');
+var mymodule = require('../app');
 var debug = require('debug')('progetto:server');
 //var http = require('http');
+var app = mymodule.app
+var server = mymodule.server
 
-var server = bot.login(server);
 /**
  * Get port from environment and store in Express.
  */
