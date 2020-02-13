@@ -68,14 +68,18 @@ io.on('connection', function(socket){
 	 console.log("connesso");
 	 socket.emit('message', {mitt:"Server", dest:email, txt:"Ciao "+email});
 	 console.log("Emesso");
+	 socket.join(email);
 	  
 	 socket.on('mess', function(data) {
 		//console.log("[Server] ricevuto messaggio: "+ message);
 		
 		
 		var mittente = socket.request.session.email;
-		socket.emit('message', {mitt:mittente, dest:data.email, txt:data.txt});
-		console.log("[Server] messaggio emesso: "+ mittente);
+		if(data.dest == "all") socket.broadcast.emit('message', {mitt:mittente, dest:data.email, txt:data.txt});
+		else{
+			socket.broadcast.to(data.dest).emit('message', {mitt:mittente, dest:data.email, txt:data.txt});
+			console.log("[Server] messaggio emesso: "+ mittente);
+		}
 		});   
 });
  
