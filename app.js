@@ -75,9 +75,12 @@ io.on('connection', function(socket){
 		
 		
 		var mittente = socket.request.session.email;
-		if(data.dest == "all") socket.broadcast.emit('message', {mitt:mittente, dest:data.email, txt:data.txt});
+		if(data.dest == "all"){ 
+			socket.broadcast.emit('message', {mitt:mittente, dest:data.dest, txt:data.txt});
+			console.log("[Server] inviato messaggio a: "+ data.dest);
+		}
 		else{
-			socket.broadcast.to(data.dest).emit('message', {mitt:mittente, dest:data.email, txt:data.txt});
+			socket.broadcast.to(data.dest).emit('message', {mitt:mittente, dest:data.dest, txt:data.txt});
 			console.log("[Server] messaggio emesso: "+ mittente);
 		}
 		});   
