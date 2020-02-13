@@ -181,9 +181,10 @@ $("#ao").on("keyup", function(e){
 });
 
 $("#selezionaUtente").click(function(){
-	var array = $("#myInput").val().split(",");
+	var array = $("#myInput").val().split(", ");
 	$("#divChat").attr("disabled", false)
 	destinatario = array[1];
+	alert(destinatario);
 });
 
 //-- Clear Chat
