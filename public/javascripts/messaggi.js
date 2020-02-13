@@ -112,7 +112,7 @@ function loadRequest(){
 
 
 $(document).ready(function(){
-	//loadRequest();
+	loadRequest();
 	$("#divChat").hide();
 	var request = $.get("/getListaUtenti", function(data, status){});
 	var destinatario;
