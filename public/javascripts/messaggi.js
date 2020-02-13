@@ -100,6 +100,7 @@ document.addEventListener("click", function (e) {
 
 function loadRequest(){
 	var request = $.get("/getRichieste", function(data, status){});
+	alert("Richiesta richieste");
 	
 	request.done(function(msg) {
         if(msg.errore) alert("Errore");
