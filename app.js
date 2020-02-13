@@ -229,7 +229,7 @@ app.post('/invioRichiesta', function(req,res){
 	
 	client.query('INSERT INTO chat(id, stato, utente1, utente2) VALUES($1,$2,$3,$4)', [id, "richiesta", email, destinatario], (err, res) => {
 				if (err) throw err;
-	console log("Richieta inviata da "+email+" a "+destinatario);
+	console.log("Richieta inviata da "+email+" a "+destinatario);
 	});
 
 });
@@ -240,7 +240,7 @@ app.get('/getRichieste', function(req,res){
 	
 	client.query('SELECT id, utente1 from chat where utente2 = $1 and stato = richiesta', [email], (err, response) => {
 		if (err) throw err;
-		console log(response.rows);
+		console.log(response.rows);
 		res.send(response.rows);
 	});
 });
