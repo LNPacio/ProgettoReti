@@ -222,6 +222,7 @@ app.get('/getListaUtenti', function(req, res, next) {
 
 //invio richiesta di amicizia
 app.post('/invioRichiesta', function(req,res){
+	cosole.log("Dbug");
 	var email = req.session.email;
 	var destinatarioArraty = req.body.ricercaUtenti().split(", ");
 	var destinatario = destinatarioArraty[1];

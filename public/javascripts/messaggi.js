@@ -203,14 +203,14 @@ $("#selezionaUtente").click(function(){
 	//destinatario = array[1];
 	//alert(destinatario);
 	//resetChat();
-	var request = $.post("/invioRichiesta", function(data, status){});
+	var request = $.post("/invioRichiesta", function(data){});
 		
-		request.done(function(msg) {
+		/*request.done(function(msg) {
         if(msg.errore) alert("Errore");
         else{
 			for(var utente of msg)
 				alert("Richiesta inviata");
-		}
+		}*/
 		});
  
 	
