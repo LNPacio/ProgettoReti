@@ -238,7 +238,7 @@ app.post('/invioRichiesta', function(req,res){
 app.get('/getRichieste', function(req,res){
 	var email = req.session.email;
 	
-	client.query('SELECT id, utente1 from chat where utente2 = $1 and stato = richiesta', [email], (err, response) => {
+	client.query('SELECT id, utente1 from chat where utente2 = $1 and stato = $2', [email, "richiesta"], (err, response) => {
 		if (err) throw err;
 		console.log(response.rows);
 		res.send(response.rows);
