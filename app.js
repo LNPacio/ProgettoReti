@@ -220,6 +220,30 @@ app.get('/getListaUtenti', function(req, res, next) {
 		
 });
 
+//invio richiesta di amicizia
+app.post('/invioRichiesta', function(req,res){
+	var email = req.session.email;
+	var destinatarioArraty = req.body.ricercaUtenti().split(", ");
+	var destinatario = destinatarioArraty[1];
+	var id = email+destinatario;
+	
+	client.query('INSERT INTO chat(id, stato, utente1, utente2) VALUES($1,$2,$3,$4)', [id, "richiesta", email, destinatario], (err, res) => {
+				if (err) throw err;
+	});
+
+});
+
+//caricamento lista richieste di amicizia
+app.get('/getRichieste' function(req,res){
+	var email = req.session.email;
+	
+	client.query('SELECT id, utente1 from chat where utente2 = $1 and stato = richiesta', [email], (err, response) => {
+		if (err) throw err;
+		
+		res.send(response.rows);
+	});
+});
+
 	
 
 app.use('/', indexRouter);

@@ -97,7 +97,22 @@ document.addEventListener("click", function (e) {
 
  var listaUtenti = [];
 
+
+function loadRequest(){
+	var request = $.get("/getRichieste", function(data, status){});
+	
+	request.done(function(msg) {
+        if(msg.errore) alert("Errore");
+        else{
+			for(var line of msg)
+				$('#listadegliamici').append('<td name='+line.id+'>'+line.utente1+'</td>');
+		}
+	});
+}
+
+
 $(document).ready(function(){
+	loadRequest();
 	$("#divChat").hide();
 	var request = $.get("/getListaUtenti", function(data, status){});
 	var destinatario;
@@ -182,11 +197,22 @@ $("#ao").on("keyup", function(e){
 });
 
 $("#selezionaUtente").click(function(){
-	var array = $("#myInput").val().split(", ");
-	$("#divChat").show();
-	destinatario = array[1];
-	alert(destinatario);
-	resetChat();
+	//var array = $("#myInput").val().split(", ");
+	//$("#divChat").show();
+	//destinatario = array[1];
+	//alert(destinatario);
+	//resetChat();
+	var request = $.post("/invioRichiesta", function(data, status){});
+		
+		request.done(function(msg) {
+        if(msg.errore) alert("Errore");
+        else{
+			for(var utente of msg)
+				alert("Richiesta inviata");
+		}
+		});
+ 
+	
 });
 
 //-- Clear Chat
