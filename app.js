@@ -137,7 +137,7 @@ app.post('/signin', function(req,res){
 				req.session.email = email;
 				req.session.name = response.rows[0].name;
 				req.session.surname = response.rows[0].surname;
-				req.session.redirect('/users/home');
+				res.redirect('/users/home');
 			}
 			else{
 				res.send('<html><body>Password errata</body></html>');
