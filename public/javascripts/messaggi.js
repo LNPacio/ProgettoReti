@@ -99,6 +99,7 @@ document.addEventListener("click", function (e) {
 
 $(document).ready(function(){
 	var request = $.get("/getListaUtenti", function(data, status){});
+	var destinatario;
 		
 		request.done(function(msg) {
         if(msg.errore) alert("Errore");
@@ -170,7 +171,7 @@ $("#ao").on("keyup", function(e){
     if (e.which == 13){
         var text = $("#ao").val();
         if (text !== ""){
-			socket.emit('mess', {dest:"all", txt:text});
+			socket.emit('mess', {dest: destinatario, txt:text});
             insertChat("notme", text);              
             $(this).val('');
         
@@ -181,7 +182,8 @@ $("#ao").on("keyup", function(e){
 
 $("#selezionaUtente").click(function(){
 	var array = $("#myInput").val().split(",");
-	dest = array[1];
+	$("#divChat").attr("disabled", false)
+	destinatario = array[1];
 });
 
 //-- Clear Chat
