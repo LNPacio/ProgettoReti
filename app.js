@@ -133,11 +133,11 @@ app.post('/signin', function(req,res){
 		}
 		else{
 			if(response.rows[0].password == password){
-				sess= req.session;
-				sess.email = email;
-				sess.name = response.rows[0].name;
-				sess.surname = response.rows[0].surname;
-				res.redirect('/users/home');
+				//sess= req.session;
+				req.session.email = email;
+				req.session.name = response.rows[0].name;
+				req.session.surname = response.rows[0].surname;
+				req.session.redirect('/users/home');
 			}
 			else{
 				res.send('<html><body>Password errata</body></html>');
@@ -152,7 +152,7 @@ app.post('/signin', function(req,res){
 //inserimento città in profilo
 app.post('/add_city', function(req,res){
 	var città = req.body.città;	
-	var email = sess.email;
+	var email = req.session.email;
 	
 	if (città == '') res.send("Inserisci una città prima!");
 	
@@ -177,7 +177,7 @@ app.post('/add_city', function(req,res){
 //eliminazione città in profilo
 app.post('/remove_city', function(req,res){
 	var città = req.body.città;	
-	var email = sess.email;
+	var email = req.session.email;
 	
 	client.query('SELECT città from luoghi where email = $1 and città = $2', [email, città], (err, response) => {
 		if (err) throw err;
@@ -197,7 +197,7 @@ app.post('/remove_city', function(req,res){
 
 //popolazione lista città in profilo
 app.get('/showUsersCities', function(req, res, next) {
-		var email = sess.email;
+		var email = req.session.email;
 		
 		client.query('SELECT città from luoghi where email = $1', [email], (err, response) => {
 		if (err) throw err;
@@ -210,7 +210,7 @@ app.get('/showUsersCities', function(req, res, next) {
 
 //popolazione barra ricerca utenti
 app.get('/getListaUtenti', function(req, res, next) {
-		var email = sess.email;
+		var email = req.session.email;
 		
 		client.query('SELECT name, surname, email from utente where email != $1', [email], (err, response) => {
 		if (err) throw err;
