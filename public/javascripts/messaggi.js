@@ -171,7 +171,7 @@ $("#ao").on("keyup", function(e){
     if (e.which == 13){
         var text = $("#ao").val();
         if (text !== ""){
-			socket.emit('mess', {dest: destinatario, txt:text});
+			socket.emit('mess', {dest:destinatario, txt:text});
             insertChat("notme", text);              
             $(this).val('');
         
@@ -185,10 +185,11 @@ $("#selezionaUtente").click(function(){
 	$("#divChat").attr("disabled", false)
 	destinatario = array[1];
 	alert(destinatario);
+	resetChat();
 });
 
 //-- Clear Chat
-resetChat();
+//resetChat();
 
 //-- Print Messages
 //insertChat("me", "Hello Tom...", 0);  
