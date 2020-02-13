@@ -222,7 +222,7 @@ app.get('/getListaUtenti', function(req, res, next) {
 
 //invio richiesta di amicizia
 app.post('/invioRichiesta', function(req,res){
-	cosole.log("Dbug");
+	console.log("Dbug");
 	var email = req.session.email;
 	var destinatario = req.body.destinatario;
 	var id = email+destinatario;
