@@ -56,6 +56,11 @@ input[type=submit] {
 	position: abslolute;
 }
 
+.tabAmici{
+	width: 30%;
+	position: abslolute;
+}
+
 main{
 	position: fixed;
 }
