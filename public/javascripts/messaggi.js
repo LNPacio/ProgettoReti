@@ -198,12 +198,16 @@ $("#ao").on("keyup", function(e){
 });
 
 $("#selezionaUtente").click(function(){
-	//var array = $("#myInput").val().split(", ");
+	var array = $("#myInput").val().split(", ");
 	//$("#divChat").show();
-	//destinatario = array[1];
+	destinat = array[1];
 	//alert(destinatario);
 	//resetChat();
-	var request = $.post("/invioRichiesta", function(data){});
+	var request = $.post("/invioRichiesta", {destinatario: destinat} ,function(data, status){});
+	request.done(function(msg) {
+        if(msg.errore) alert("Errore");
+        else alert(msg);
+        });
 		
 		/*request.done(function(msg) {
         if(msg.errore) alert("Errore");

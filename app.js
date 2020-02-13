@@ -224,8 +224,7 @@ app.get('/getListaUtenti', function(req, res, next) {
 app.post('/invioRichiesta', function(req,res){
 	cosole.log("Dbug");
 	var email = req.session.email;
-	var destinatarioArraty = req.body.ricercaUtenti().split(", ");
-	var destinatario = destinatarioArraty[1];
+	var destinatario = req.body.destinatario;
 	var id = email+destinatario;
 	
 	client.query('INSERT INTO chat(id, stato, utente1, utente2) VALUES($1,$2,$3,$4)', [id, "richiesta", email, destinatario], (err, res) => {
