@@ -170,7 +170,7 @@ $("#ao").on("keyup", function(e){
     if (e.which == 13){
         var text = $("#ao").val();
         if (text !== ""){
-			socket.emit('mess', text);
+			socket.emit('mess', {dest:"all", txt:text});
             insertChat("notme", text);              
             $(this).val('');
         
@@ -194,7 +194,7 @@ resetChat();
 
 		
 		socket.on('message', function(message) {
-			text = message.mitt +": dice la tua email è:"+message.txt;
+			text = message.mitt +":\n"+message.txt;
 			insertChat("me", text, 0);
 		});
 });

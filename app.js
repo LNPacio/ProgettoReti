@@ -66,16 +66,16 @@ app.use(sessionMiddleware);
 io.on('connection', function(socket){
 	 var email = socket.request.session.email;
 	 console.log("connesso");
-	 socket.emit('message', {mitt:"Server", txt: email});
+	 socket.emit('message', {mitt:"Server", dest:email, txt:"Ciao "+email});
 	 console.log("Emesso");
 	  
-	 socket.on('mess', function(message) {
-		console.log("[Server] ricevuto messaggio: "+ message);
+	 socket.on('mess', function(data) {
+		//console.log("[Server] ricevuto messaggio: "+ message);
 		
 		
-		/*var mittente = socket.request.session.email;
-		socket.emit('message', mittente);
-		console.log("[Server] messaggio emesso: "+ mittente);*/
+		var mittente = socket.request.session.email;
+		socket.emit('message', {mitt:mittente, dest:data.email, txt:data.txt});
+		console.log("[Server] messaggio emesso: "+ mittente);
 		});   
 });
  
