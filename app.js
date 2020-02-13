@@ -234,7 +234,7 @@ app.post('/invioRichiesta', function(req,res){
 });
 
 //caricamento lista richieste di amicizia
-app.get('/getRichieste' function(req,res){
+app.get('/getRichieste', function(req,res){
 	var email = req.session.email;
 	
 	client.query('SELECT id, utente1 from chat where utente2 = $1 and stato = richiesta', [email], (err, response) => {
