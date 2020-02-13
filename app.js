@@ -228,8 +228,10 @@ app.post('/invioRichiesta', function(req,res){
 	var id = email+destinatario;
 	
 	client.query('INSERT INTO chat(id, stato, utente1, utente2) VALUES($1,$2,$3,$4)', [id, "richiesta", email, destinatario], (err, res) => {
-				if (err) throw err;
+	if (err) throw err;
+	
 	console.log("Richieta inviata da "+email+" a "+destinatario);
+	res.send("Richiesta inviata");
 	});
 
 });
