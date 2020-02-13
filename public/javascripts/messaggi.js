@@ -200,7 +200,7 @@ $("#ao").on("keyup", function(e){
 $("#selezionaUtente").click(function(){
 	var array = $("#myInput").val().split(", ");
 	//$("#divChat").show();
-	destinat = array[1];
+	var destinat = array[1];
 	//alert(destinatario);
 	//resetChat();
 	var request = $.post("/invioRichiesta", {destinatario: destinat} ,function(data, status){});
