@@ -210,8 +210,8 @@ $("#selezionaUtente").click(function(){
         else{
 			for(var utente of msg)
 				alert("Richiesta inviata");
-		}*/
-		});
+		}
+		});*/
  
 	
 });
