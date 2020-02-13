@@ -61,6 +61,11 @@ input[type=submit] {
 	position: abslolute;
 }
 
+#tabRichieste{
+	width: 30%;
+	position: abslolute;
+}
+
 main{
 	position: fixed;
 }
