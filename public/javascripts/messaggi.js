@@ -182,7 +182,7 @@ $("#ao").on("keyup", function(e){
 
 $("#selezionaUtente").click(function(){
 	var array = $("#myInput").val().split(", ");
-	$("#divChat").attr("disabled", false)
+	$("#divChat").attr("visibility","visible")
 	destinatario = array[1];
 	alert(destinatario);
 	resetChat();
