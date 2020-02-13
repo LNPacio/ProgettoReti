@@ -98,6 +98,7 @@ document.addEventListener("click", function (e) {
  var listaUtenti = [];
 
 $(document).ready(function(){
+	$("#divChat").hide();
 	var request = $.get("/getListaUtenti", function(data, status){});
 	var destinatario;
 		
