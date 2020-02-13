@@ -233,7 +233,7 @@ app.post('/invioRichiesta', function(req,res){
 	console.log("Richieta inviata da "+email+" a "+destinatario);
 	
 	});
-	res.send("Richiesta inviata");
+	res.send("Richiesta inviata"); 
 });
 
 //caricamento lista richieste di amicizia
