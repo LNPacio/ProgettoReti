@@ -76,7 +76,7 @@ io.on('connection', function(socket){
 		
 		var mittente = socket.request.session.email;
 		if(data.dest == "all"){ 
-			socket.emit('message', {mitt:mittente, dest:data.dest, txt:data.txt});
+			socket.broadcast.emit('message', {mitt:mittente, dest:data.dest, txt:data.txt});
 			console.log("[Server] inviato messaggio a: "+ data.dest);
 		}
 		else{
