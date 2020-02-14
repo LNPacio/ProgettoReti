@@ -223,8 +223,8 @@ $(".bottoneaccetta").click(function(){
         if(msg.errore) alert("Errore");
         else alert(msg);
      });
-     $(document).loadAmici();
-     $(document).loadRequest();
+     loadAmici();
+     loadRequest();
      
 });
 
