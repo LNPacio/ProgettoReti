@@ -276,7 +276,9 @@ app.get('/getAmici', function(req,res){
 		console.log(response.rows);
 		risposta2 = response.rows
 	});
-	res.send({risp1:risposta1, risp2:risposta2});	
+	var msg = {risp1:risposta1, risp2:risposta2};
+	console.log(msg);
+	res.send(msg);	
 });
 
 app.post('/accettaAmicizia', function(req,res){
