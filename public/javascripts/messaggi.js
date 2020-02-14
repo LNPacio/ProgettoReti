@@ -108,7 +108,7 @@ function loadRequest(){
 			if (msg.length > 0){
 			$('#listadellerichieste').empty();
 			for(var line of msg)
-				$('#listadellerichieste').append('<tr><td name='+line.id+'>'+line.utente1+' <button class="bottoneaccetta" id='+line.id+' type="button">Accetta</button>'+'</td></tr>');
+				$('#listadellerichieste').append('<tr><td name='+line.id+'>'+line.utente1+' <button class="bottoneaccetta" id='+line.id+' type="button" onClick="clickbutton('+line.id+')">Accetta</button>'+'</td></tr>');
 			}
 		}
 	});
@@ -129,8 +129,8 @@ function loadAmici(){
 	});
 }
 
-$(".bottoneaccetta").click(function(){
-	var idChat = $(this).attr("id");
+function clickbutton(idChat){
+	//var idChat = $(this).attr("id");
 	var request = $.post("/accettaAmicizia", {idChat:idChat} ,function(data, status){});
 	request.done(function(msg) {
         if(msg.errore) alert("Errore");
@@ -146,9 +146,10 @@ $(".bottoneaccetta").click(function(){
 
 
 $(document).ready(function(){
+	$("#divChat").hide();
 	loadRequest();
 	loadAmici(); 
-	$("#divChat").hide();
+	
 	var request = $.get("/getListaUtenti", function(data, status){});
 	var destinatario;
 		
