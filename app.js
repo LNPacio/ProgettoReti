@@ -280,7 +280,7 @@ app.get('/getAmici', function(req,res){
 	console.log("Risposta2:");
 	console.log(risposta2); 
 	var msg = {risp1:risposta1, risp2:risposta2};
-	console.log(msg);
+	console.log("Messaggio"+msg);
 	res.send(msg);	
 });
 
