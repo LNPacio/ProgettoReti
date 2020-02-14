@@ -268,15 +268,17 @@ app.get('/getAmici', function(req,res){
 	client.query('SELECT id, utente1 from chat where utente2 = $1 and stato = $2', [email, "accettata"], (err, response) => {
 		if (err) throw err;
 		risposta1 = response.rows;
-		console.log(risposta1);
+		
 	});
 	
 	client.query('SELECT id, utente2 from chat where utente1 = $1 and stato = $2', [email, "accettata"], (err, response) => {
 		if (err) throw err;
 		risposta2 = response.rows;
-		console.log(risposta2);
+		
 		
 	});
+	console.log(risposta1);
+	console.log(risposta2);
 	var msg = {risp1:risposta1, risp2:risposta2};
 	console.log(msg);
 	res.send(msg);	
