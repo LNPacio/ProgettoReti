@@ -221,10 +221,12 @@ $(".bottoneaccetta").click(function(){
 	var request = $.post("/accettaAmicizia", {idChat:idChat} ,function(data, status){});
 	request.done(function(msg) {
         if(msg.errore) alert("Errore");
-        else alert(msg);
+        else{ 
+			alert(msg);
+			loadAmici();
+			loadRequest();
+		}
      });
-     loadAmici();
-     loadRequest();
      
 });
 
