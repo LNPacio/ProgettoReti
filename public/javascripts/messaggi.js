@@ -130,7 +130,7 @@ function loadAmici(){
 			if (msg.length > 0){
 			$('#listadegliamici').empty();
 			for(var line of msg)
-				$('#listadegliamici').append('<tr><td name='+line.id+'><a id='+line.id+' onClick="clickChat(this.id)">'+line.utente+'</a></td></tr>');
+				$('#listadegliamici').append('<tr><td name='+line.id+'><a id='+line.id+' onClick="clickChat(this.id, this.value)">'+line.utente+'</a></td></tr>');
 			}
 		}
 	});
@@ -150,10 +150,10 @@ function clickbutton(idChat){
      
 }
 
-function clickChat(idChat){
+function clickChat(idChat, valore){
 	$("#divChat").show();
 	//$("#chatBox").empty();
-	destinatarioGlobale= $(this).val();
+	destinatarioGlobale= valore;
 	alert(destinatarioGlobale);
 	idChatGlobale = idChat;
 	socket = io.connect("https://hidden-fjord-76821.herokuapp.com/", {query: "idChat="+idChat});
