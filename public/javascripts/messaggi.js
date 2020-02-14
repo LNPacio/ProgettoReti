@@ -129,6 +129,21 @@ function loadAmici(){
 	});
 }
 
+$(".bottoneaccetta").click(function(){
+	var idChat = $(this).attr("id");
+	var request = $.post("/accettaAmicizia", {idChat:idChat} ,function(data, status){});
+	request.done(function(msg) {
+        if(msg.errore) alert("Errore");
+        else{ 
+			alert(msg);
+			loadAmici();
+		loadRequest();
+		}
+     });
+     
+});
+
+
 
 $(document).ready(function(){
 	loadRequest();
@@ -216,19 +231,7 @@ $("#ao").on("keyup", function(e){
 
 });
 
-$(".bottoneaccetta").click(function(){
-	var idChat = $(this).attr("id");
-	var request = $.post("/accettaAmicizia", {idChat:idChat} ,function(data, status){});
-	request.done(function(msg) {
-        if(msg.errore) alert("Errore");
-        else{ 
-			alert(msg);
-			loadAmici();
-		//loadRequest();
-		}
-     });
-     
-});
+
 
 $("#selezionaUtente").click(function(){
 	var array = $("#myInput").val().split(", ");
