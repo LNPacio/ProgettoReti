@@ -227,13 +227,26 @@ app.post('/invioRichiesta', function(req,res){
 	var destinatario = req.body.destinatario;
 	var id = email+destinatario;
 	
+			
+	client.query('SELECT utente1, utente2 from chat where (utente1 = $1 and utente2 = $2) or (utente1 = $2 and utente2 = $1)', [email, destinatario], (err, risp) => {
+		if (err) throw err;
+		
+		if(risp.rows.length > 0){
+			console.log("Amicizia già presentetra"+email+" e "+destinatario);
+			res.send("Amicizia gà presente");
+		}
+		
+	else{
+	
 	client.query('INSERT INTO chat(id, stato, utente1, utente2) VALUES($1,$2,$3,$4)', [id, "richiesta", email, destinatario], (err, res) => {
 	if (err) throw err;
 	
 	console.log("Richieta inviata da "+email+" a "+destinatario);
 	
 	});
-	res.send("Richiesta inviata"); 
+	res.send("Richiesta inviata");
+	}
+	}); 
 });
 
 //caricamento lista richieste di amicizia
