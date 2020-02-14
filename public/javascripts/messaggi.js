@@ -105,8 +105,12 @@ function loadRequest(){
 	request.done(function(msg) {
         if(msg.errore) alert("Errore");
         else{
+			alert(msg.length);
+			if (msg.length > 0){
+			$('#listadellerichieste').empty();
 			for(var line of msg)
 				$('#listadellerichieste').append('<tr><td name='+line.id+'>'+line.utente1+'<button class="bottoneaccetta" id='+line.id+'>Accetta</button>'+'</td></tr>');
+			}
 		}
 	});
 }
@@ -117,8 +121,11 @@ function loadAmici(){
 	request.done(function(msg) {
         if(msg.errore) alert("Errore");
         else{
+			if (msg.length > 0){
+			$('#listadegliamici').empty();
 			for(var line of msg)
 				$('#listadegliamici').append('<tr><td name='+line.id+'>'+line.utente+'</td></tr>');
+			}
 		}
 	});
 }
