@@ -108,7 +108,7 @@ function loadRequest(){
 			if (msg.length > 0){
 			$('#listadellerichieste').empty();
 			for(var line of msg)
-				$('#listadellerichieste').append('<tr><td name='+line.id+'>'+line.utente1+' <button class="bottoneaccetta" id='+line.id+' type="button" onClick="clickbutton('+line.id+')">Accetta</button>'+'</td></tr>');
+				$('#listadellerichieste').append('<tr><td name='+line.id+'>'+line.utente1+' <button class="bottoneaccetta" id='+line.id+' type="button" onClick="clickbutton(this.id)">Accetta</button>'+'</td></tr>');
 			}
 		}
 	});
