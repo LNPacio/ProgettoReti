@@ -151,7 +151,7 @@ function clickbutton(idChat){
 function clickChat(idChat){
 	$("#divChat").show();
 	//$("#chatBox").empty();
-	socket = io.connect();
+	socket = io.connect("host=hidden-fjord-76821.herokuapp.com", {query: "idChat="+idChat});
 }
 
 

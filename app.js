@@ -65,6 +65,9 @@ app.use(sessionMiddleware);
 
 io.on('connection', function(socket){
 	 var email = socket.request.session.email;
+	 var idChat = socket.handshake.query.idChat;
+	 console.log(idChat);
+	 
 	 console.log("connesso");
 	 socket.emit('message', {mitt:"Server", dest:email, txt:"Ciao "+email});
 	 console.log("Emesso");
