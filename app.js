@@ -263,7 +263,7 @@ app.get('/getRichieste', function(req,res){
 app.get('/getAmici', function(req,res){
 	var email = req.session.email;
 	
-	client.query('SELECT id, utente1 from chat where utente2 = $1 and stato = $2', [email, "accettata"], (err, response) => {
+	client.query('SELECT id, utente1 as utente from chat where utente2 = $1 and stato = $2 union SELECT id, utente2 as utente from chat where utente1 = $1 and stato = $2', [email, "accettata"], (err, response) => {
 		if (err) throw err;
 		console.log(response.rows);
 		res.send(response.rows);

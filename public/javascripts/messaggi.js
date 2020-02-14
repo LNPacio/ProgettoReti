@@ -118,7 +118,7 @@ function loadAmici(){
         if(msg.errore) alert("Errore");
         else{
 			for(var line of msg)
-				$('#listadegliamici').append('<tr><td name='+line.id+'>'+line.utente1+'</td></tr>');
+				$('#listadegliamici').append('<tr><td name='+line.id+'>'+line.utente+'</td></tr>');
 		}
 	});
 }
