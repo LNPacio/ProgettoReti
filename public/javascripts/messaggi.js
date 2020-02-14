@@ -151,7 +151,7 @@ function clickbutton(idChat){
 function clickChat(idChat){
 	$("#divChat").show();
 	//$("#chatBox").empty();
-	var socket = io.connect();
+	socket = io.connect();
 }
 
 
