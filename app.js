@@ -260,12 +260,14 @@ app.get('/getRichieste', function(req,res){
 	});
 });
 
+//caricamento amici
 app.get('/getAmici', function(req,res){
 	var email = req.session.email;
+	console.log("Inizio query");
 	var risposta1;
 	var risposta2;
 	
-	console.log("Inizio query");
+	
 	client.query('SELECT id, utente1 from chat where utente2 = $1 and stato = $2', [email, "accettata"], (err, response) => {
 		if (err) throw err;
 		risposta1 = response.rows;
