@@ -84,7 +84,7 @@ io.on('connection', function(socket){
 			console.log("[Server] inviato messaggio a: "+ data.dest);
 		}
 		else{
-			socket.emit('message', {mitt:mittente, dest:data.dest, txt:data.txt, idChat:data.idChat});
+			socket.broadcast.to(data.idChat+data.dest).emit('message', {mitt:mittente, dest:data.dest, txt:data.txt, idChat:data.idChat});
 			console.log("[Server] messaggio emesso: "+ mittente+ "sulla chat "+data.idChat+data.dest);
 		}
 		});   

@@ -158,6 +158,12 @@ function clickChat(idChat, valore){
 	idChatGlobale = idChat;
 	socket = io.connect("https://hidden-fjord-76821.herokuapp.com/", {query: "idChat="+idChat});
 	alert("Debug");
+	
+	socket.on('message', function(message) {
+			alert("Messaggio ricevuto");
+			text = message.mitt +":\n"+message.txt;
+			//insertChat("me", text, 0);
+		});
 }
 
 
@@ -283,11 +289,7 @@ $("#selezionaUtente").click(function(){
 //-- NOTE: No use time on insertChat.
 
 		
-		socket.on('message', function(message) {
-			alert("Messaggio ricevuto");
-			text = message.mitt +":\n"+message.txt;
-			insertChat("me", text, 0);
-		});
+		
 });
 
 
