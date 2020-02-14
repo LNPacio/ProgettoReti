@@ -1,5 +1,6 @@
 var socket;
 var idChatGlobale;
+var destinatarioGlobale;
 function autocomplete(inp, arr) {
   /*the autocomplete function takes two arguments,
   the text field element and an array of possible autocompleted values:*/
@@ -152,6 +153,8 @@ function clickbutton(idChat){
 function clickChat(idChat){
 	$("#divChat").show();
 	//$("#chatBox").empty();
+	destinatarioGlobale= $(this).val();
+	alert(destinatarioGlobale);
 	idChatGlobale = idChat;
 	socket = io.connect("https://hidden-fjord-76821.herokuapp.com/", {query: "idChat="+idChat});
 	alert("Debug");
@@ -237,7 +240,7 @@ $("#ao").on("keyup", function(e){
     if (e.which == 13){
         var text = $("#ao").val();
         if (text !== ""){
-			socket.emit('mess', {dest:destinatario, txt:text, idChat:idChatGlobale});
+			socket.emit('mess', {dest:destinatarioGlobale, txt:text, idChat:idChatGlobale});
             insertChat("notme", text);              
             $(this).val('');
         

@@ -71,7 +71,7 @@ io.on('connection', function(socket){
 	 console.log("connesso");
 	 socket.emit('message', {mitt:"Server", dest:email, txt:"Ciao "+email});
 	 console.log("Emesso");
-	 socket.join(idChat);
+	 socket.join(idChat+email);
 	  
 	 socket.on('mess', function(data) {
 		//console.log("[Server] ricevuto messaggio: "+ message);
@@ -83,8 +83,8 @@ io.on('connection', function(socket){
 			console.log("[Server] inviato messaggio a: "+ data.dest);
 		}
 		else{
-			socket.broadcast.to(data.idChat).emit('message', {mitt:mittente, dest:data.dest, txt:data.txt, idChat:data.idChat});
-			console.log("[Server] messaggio emesso: "+ mittente);
+			socket.broadcast.to(data.idChat+data.dest).emit('message', {mitt:mittente, dest:data.dest, txt:data.txt, idChat:data.idChat});
+			console.log("[Server] messaggio emesso: "+ mittente+ "sulla chat "+data.idChat);
 		}
 		});   
 });
