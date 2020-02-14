@@ -110,6 +110,10 @@ function loadRequest(){
 			for(var line of msg)
 				$('#listadellerichieste').append('<tr><td name='+line.id+'>'+line.utente1+' <button class="bottoneaccetta" id='+line.id+' type="button" onClick="clickbutton(this.id)">Accetta</button>'+'</td></tr>');
 			}
+			else{
+				$('#listadellerichieste').empty();
+				$('#listadellerichieste').append('<tr><td>Nessuna richiesta</td></tr>');
+			}
 		}
 	});
 }
@@ -137,7 +141,7 @@ function clickbutton(idChat){
         else{ 
 			alert(msg);
 			loadAmici();
-		loadRequest();
+			loadRequest();
 		}
      });
      
