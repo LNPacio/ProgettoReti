@@ -265,13 +265,13 @@ app.get('/getAmici', function(req,res){
 	var risposta1;
 	var risposta2;
 	
-	client.query('SELECT id, utente1 as utente from chat where utente2 = $1 and stato = $2', [email, "accettata"], (err, response) => {
+	client.query('SELECT id, utente1 from chat where utente2 = $1 and stato = $2', [email, "accettata"], (err, response) => {
 		if (err) throw err;
 		console.log(response.rows);
 		risposta1 = response.rows
 	});
 	
-	client.query('SELECT id, utente2 as utente from chat where utente1 = $1 and stato = $2', [email, "accettata"], (err, response) => {
+	client.query('SELECT id, utente2 from chat where utente1 = $1 and stato = $2', [email, "accettata"], (err, response) => {
 		if (err) throw err;
 		console.log(response.rows);
 		risposta2 = response.rows
