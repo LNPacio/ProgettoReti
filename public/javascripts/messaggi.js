@@ -150,7 +150,7 @@ function clickbutton(idChat){
 
 function clickChat(idChat){
 	$("#divChat").show();
-	$("#chatBox").empty();
+	//$("#chatBox").empty();
 	var socket = io.connect();
 }
 
