@@ -71,6 +71,7 @@ io.on('connection', function(socket){
 	 console.log("connesso");
 	 socket.emit('message', {mitt:"Server", dest:email, txt:"Ciao "+email});
 	 console.log("Emesso");
+	 console.log(idChat+email);
 	 socket.join(idChat+email);
 	  
 	 socket.on('mess', function(data) {
@@ -84,7 +85,7 @@ io.on('connection', function(socket){
 		}
 		else{
 			socket.broadcast.to(data.idChat+data.dest).emit('message', {mitt:mittente, dest:data.dest, txt:data.txt, idChat:data.idChat});
-			console.log("[Server] messaggio emesso: "+ mittente+ "sulla chat "+data.idChat);
+			console.log("[Server] messaggio emesso: "+ mittente+ "sulla chat "+data.idChat+data.dest);
 		}
 		});   
 });
