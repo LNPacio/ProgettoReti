@@ -216,7 +216,9 @@ $("#ao").on("keyup", function(e){
 
 });
 
-$(".bottoneaccetta").click(function(){
+$(".bottoneaccetta").on('click', function(event){
+	event.stopPropagation();
+    event.stopImmediatePropagation();
 	var idChat = $(this).attr("id");
 	var request = $.post("/accettaAmicizia", {idChat:idChat} ,function(data, status){});
 	request.done(function(msg) {
