@@ -106,7 +106,19 @@ function loadRequest(){
         if(msg.errore) alert("Errore");
         else{
 			for(var line of msg)
-				$('#listadellerichieste').append('<tr><td name='+line.id+'>'+line.utente1+'<button id='+line.id+'>Accetta</button>'+'</td></tr>');
+				$('#listadellerichieste').append('<tr><td name='+line.id+'>'+line.utente1+'<button class="bottoneaccetta" id='+line.id+'>Accetta</button>'+'</td></tr>');
+		}
+	});
+}
+
+
+function loadAmici(){
+	var request = $.get("/getAmici", function(data, status){});
+	request.done(function(msg) {
+        if(msg.errore) alert("Errore");
+        else{
+			for(var line of msg)
+				$('#listadegliamici').append('<tr><td name='+line.id+'>'+line.utente1+'</td></tr>');
 		}
 	});
 }
@@ -195,6 +207,17 @@ $("#ao").on("keyup", function(e){
         }
     }
 
+});
+
+$(".bottoneaccetta").click(function(){
+	var idChat = $(this).attr("id");
+	var request = $.post("/accettaAmicizia", {idChat:idChat} ,function(data, status){});
+	request.done(function(msg) {
+        if(msg.errore) alert("Errore");
+        else alert(msg);
+     });
+     loadRequest();
+     
 });
 
 $("#selezionaUtente").click(function(){

@@ -260,6 +260,27 @@ app.get('/getRichieste', function(req,res){
 	});
 });
 
+app.get('/getAmici', function(req,res){
+	var email = req.session.email;
+	
+	client.query('SELECT id, utente1 from chat where utente2 = $1 and stato = $2', [email, "accettata"], (err, response) => {
+		if (err) throw err;
+		console.log(response.rows);
+		res.send(response.rows);
+	});	
+});
+
+app.post('/accettaAmicizia', function(req,res){
+	var idChat = req.body.idChat;
+	
+	client.query('UPDATE chat set stato =$1 where id = $2', ["accettata", idChat], (err, response) => {
+		if (err) throw err;
+		
+		res.send("Ora sono amici"+idChat);
+	});
+	
+});
+
 	
 
 app.use('/', indexRouter);
