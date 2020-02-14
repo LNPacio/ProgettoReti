@@ -1,3 +1,4 @@
+var socket;
 function autocomplete(inp, arr) {
   /*the autocomplete function takes two arguments,
   the text field element and an array of possible autocompleted values:*/
@@ -127,7 +128,7 @@ function loadAmici(){
 			if (msg.length > 0){
 			$('#listadegliamici').empty();
 			for(var line of msg)
-				$('#listadegliamici').append('<tr><td name='+line.id+'>'+line.utente+'</td></tr>');
+				$('#listadegliamici').append('<tr><td name='+line.id+'><a id='+line.id+' onClick="clickChat(this.id)">'+line.utente+'</a></td></tr>');
 			}
 		}
 	});
@@ -145,7 +146,14 @@ function clickbutton(idChat){
 		}
      });
      
-};
+}
+
+function clickChat(idChat){
+	$("#divChat").show();
+	$("#chatBox").empty();
+	var socket = io.connect();
+}
+
 
 
 
@@ -221,7 +229,6 @@ function insertChat(who, text, time = 0){
 function resetChat(){
     $("#chatBox").empty();
 }
-var socket = io.connect();
 
 $("#ao").on("keyup", function(e){
     if (e.which == 13){
