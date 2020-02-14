@@ -105,7 +105,6 @@ function loadRequest(){
 	request.done(function(msg) {
         if(msg.errore) alert("Errore");
         else{
-			alert(msg.length);
 			if (msg.length > 0){
 			$('#listadellerichieste').empty();
 			for(var line of msg)
