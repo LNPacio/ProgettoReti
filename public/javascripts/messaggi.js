@@ -117,12 +117,8 @@ function loadAmici(){
 	request.done(function(msg) {
         if(msg.errore) alert("Errore");
         else{
-			alert(msg.risp1);
-			alert(msg.risp2);
-			for(var line1 of msg.risp1)
-				$('#listadegliamici').append('<tr><td name='+line1.id+'>'+line1.utente1+'</td></tr>');
-			for(var line2 of msg.risp2)
-				$('#listadegliamici').append('<tr><td name='+line2.id+'>'+line2.utente2+'</td></tr>');
+			for(var line of msg)
+				$('#listadegliamici').append('<tr><td name='+line.id+'>'+line.utente1+'</td></tr>');
 		}
 	});
 }
@@ -130,7 +126,7 @@ function loadAmici(){
 
 $(document).ready(function(){
 	loadRequest();
-	loadAmici();
+	loadAmici(); 
 	$("#divChat").hide();
 	var request = $.get("/getListaUtenti", function(data, status){});
 	var destinatario;
