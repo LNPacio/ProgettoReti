@@ -162,34 +162,12 @@ function clickChat(idChat, valore){
 	socket.on('message', function(message) {
 			alert("Messaggio ricevuto");
 			text = message.mitt +":\n"+message.txt;
-			//insertChat("me", text, 0);
+			insertChat("me", text, 0);
 		});
 }
 
 
-
-
-$(document).ready(function(){
-	$("#divChat").hide();
-	loadRequest();
-	loadAmici(); 
-	
-	var request = $.get("/getListaUtenti", function(data, status){});
-	var destinatario;
-		
-		request.done(function(msg) {
-        if(msg.errore) alert("Errore");
-        else{
-			for(var utente of msg)
-				listaUtenti.push(utente.name+' '+utente.surname+', '+utente.email);
-		}
-        });
-        alert("Lista utenti caricata");
-        
-	autocomplete(document.getElementById("myInput"), listaUtenti);
-	
-	
-	//Chat
+//Chat
 	var me = {};
 
 var you = {};
@@ -241,6 +219,30 @@ function insertChat(who, text, time = 0){
 function resetChat(){
     $("#chatBox").empty();
 }
+
+
+
+$(document).ready(function(){
+	$("#divChat").hide();
+	loadRequest();
+	loadAmici(); 
+	
+	var request = $.get("/getListaUtenti", function(data, status){});
+	var destinatario;
+		
+		request.done(function(msg) {
+        if(msg.errore) alert("Errore");
+        else{
+			for(var utente of msg)
+				listaUtenti.push(utente.name+' '+utente.surname+', '+utente.email);
+		}
+        });
+        alert("Lista utenti caricata");
+        
+	autocomplete(document.getElementById("myInput"), listaUtenti);
+	
+	
+	
 
 $("#ao").on("keyup", function(e){
     if (e.which == 13){
