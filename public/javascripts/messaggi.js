@@ -114,14 +114,18 @@ function loadRequest(){
 
 function loadAmici(){
 	var request = $.get("/getAmici", function(data, status){});
-	request.done(function(msg) {
+	request.done(function(msg1, msg2) {
         if(msg.errore) alert("Errore");
         else{
-			for(var line of msg)
-				$('#listadegliamici').append('<tr><td name='+line.id+'>'+line.utente1+'</td></tr>');
+			alert(msg1);
+			alert(msg2);
+			for(var line1 of msg1)
+				$('#listadegliamici').append('<tr><td name='+line1.id+'>'+line1.utente1+'</td></tr>');
+			for(var line2 of msg2)
+				$('#listadegliamici').append('<tr><td name='+line2.id+'>'+line2.utente2+'</td></tr>');
 		}
 	});
-}
+
 
 
 $(document).ready(function(){
