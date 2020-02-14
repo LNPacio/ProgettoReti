@@ -154,7 +154,7 @@ function clickChat(idChat, valore){
 	$("#divChat").show();
 	//$("#chatBox").empty();
 	destinatarioGlobale= valore;
-	alert(destinatarioGlobale);
+	alert(valore);
 	idChatGlobale = idChat;
 	socket = io.connect("https://hidden-fjord-76821.herokuapp.com/", {query: "idChat="+idChat});
 	alert("Debug");
