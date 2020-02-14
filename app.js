@@ -262,12 +262,21 @@ app.get('/getRichieste', function(req,res){
 
 app.get('/getAmici', function(req,res){
 	var email = req.session.email;
+	var risposta1;
+	var risposta2;
 	
-	client.query('SELECT id, utente1 from chat where utente2 = $1 and stato = $2', [email, "accettata"], (err, response) => {
+	client.query('SELECT id, utente1 as utente from chat where utente2 = $1 and stato = $2', [email, "accettata"], (err, response) => {
 		if (err) throw err;
 		console.log(response.rows);
-		res.send(response.rows);
-	});	
+		risposta1 = response.rows
+	});
+	
+	client.query('SELECT id, utente2 as utente from chat where utente1 = $1 and stato = $2', [email, "accettata"], (err, response) => {
+		if (err) throw err;
+		console.log(response.rows);
+		risposta2 = response.rows
+	});
+	res.send({risp1:risposta1, risp2:risposta2});	
 });
 
 app.post('/accettaAmicizia', function(req,res){
