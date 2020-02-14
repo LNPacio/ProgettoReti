@@ -126,6 +126,7 @@ function loadAmici(){
 
 $(document).ready(function(){
 	loadRequest();
+	loadAmici();
 	$("#divChat").hide();
 	var request = $.get("/getListaUtenti", function(data, status){});
 	var destinatario;
@@ -217,6 +218,7 @@ $(".bottoneaccetta").click(function(){
         else alert(msg);
      });
      loadRequest();
+     loadAmici();
      
 });
 
