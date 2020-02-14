@@ -106,7 +106,7 @@ function loadRequest(){
         if(msg.errore) alert("Errore");
         else{
 			for(var line of msg)
-				$('#listadellerichieste').append('<tr><td name='+line.id+'>'+line.utente1+'</td></tr>');
+				$('#listadellerichieste').append('<tr><td name='+line.id+'>'+line.utente1+'<button id='+line.id+'>Accetta</button>'+'</td></tr>');
 		}
 	});
 }
