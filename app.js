@@ -64,7 +64,7 @@ app.use(sessionMiddleware);
 
 //Validamento token oauth
 const clientTk = new OAuth2Client(CLIENT_ID);
-async function verify() {
+async function verify(token) {
   const ticket = await clientTk.verifyIdToken({
       idToken: token,
       audience: CLIENT_ID,  // Specify the CLIENT_ID of the app that accesses the backend
@@ -119,7 +119,7 @@ io.on('connection', function(socket){
  
 
 app.post('/tokensignin', function(req,res){
-	verify().catch(console.error);
+	verify(req.body.idToken).catch(console.error);
 	console.log(req.body);	
 });
 
