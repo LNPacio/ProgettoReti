@@ -17,10 +17,18 @@ router.get('/signin', function(req, res, next) {
 router.get('/signup', function(req, res, next) {
   res.render('registrazione', {name:"", surname:"", email:""});
 });
-
+const url = require('url'); 
 router.get('/signupG', function(req, res, next) {
   res.send("Ciao");
-  next.render('registrazione', {name: req.body.name, surname: req.body.surname, email: req.body.email});
+   res.redirect(url.format({
+       pathname:"/signupG",
+       query: {
+          "name": req.body.name,
+          "surname": req.body.surname,
+          "email": req.body.email,
+          "valid": true
+        }
+     }));
 });
 
 module.exports = router;
