@@ -162,7 +162,7 @@ input:focus{
 }
 .divTabelle{
 	height: 30px;
-	overflow: auto;
+	overflow: scoll;
 	background-color:green;
 }
        
