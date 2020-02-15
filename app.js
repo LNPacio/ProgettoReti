@@ -148,6 +148,7 @@ app.post('/tokensignin', function(req,res){
 		}
 	
 	
+	});
 });
 
 //Registrazione 
