@@ -4,6 +4,10 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session');
+const {OAuth2Client} = require('google-auth-library');
+
+const CLIENT_ID = '710894659667-qtrk5bnr8p5q9sud6ta184acbr14btjb.apps.googleusercontent.com';
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -58,6 +62,21 @@ io.use(function(socket, next) {
 
 app.use(sessionMiddleware);
 
+//Validamento token oauth
+const client = new OAuth2Client(CLIENT_ID);
+async function verify() {
+  const ticket = await client.verifyIdToken({
+      idToken: token,
+      audience: CLIENT_ID,  // Specify the CLIENT_ID of the app that accesses the backend
+      // Or, if multiple clients access the backend:
+      //[CLIENT_ID_1, CLIENT_ID_2, CLIENT_ID_3]
+  });
+  const payload = ticket.getPayload();
+  const userid = payload['sub'];
+  // If request specified a G Suite domain:
+  //const domain = payload['hd'];
+}
+
 
 /*************************************************************************************** 
  * WEB SOCKET                                                                          *
@@ -99,7 +118,10 @@ io.on('connection', function(socket){
 
  
 
-
+app.post('/tokensignin', function(req,res){
+	verify().catch(console.error);
+	console.log("Token verificato");	
+});
 
 //Registrazione //impementare controllo email già esistente
 app.post('/signup', function(req,res){
