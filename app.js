@@ -120,7 +120,7 @@ io.on('connection', function(socket){
 
 app.post('/tokensignin', function(req,res){
 	verify(req.body.idtoken).catch(console.error);
-	console.log(req.body);	
+	console.log(req.idtoken);	
 });
 
 //Registrazione //impementare controllo email già esistente
