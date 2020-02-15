@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var app = express();
 var session = require('express-session');
 
 /* GET home page. */
@@ -22,7 +23,7 @@ router.get('/signupG', function(req, res, next) {
   res.send("Ciao");
   next();
 }, function (req, res) {
-   res.render('registrazione', {name: req.body.name, surname: req.body.surname, email: req.body.email});
+   app.render('registrazione', {name: req.body.name, surname: req.body.surname, email: req.body.email});
 });
 
 module.exports = router;
