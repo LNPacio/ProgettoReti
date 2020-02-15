@@ -89,7 +89,7 @@ io.on('connection', function(socket){
 		}
 	});  
 	socket.on('disconnect', function(data) {
-		conslole.log("Disconnessione da :"+data.idChat);
+		console.log("Disconnessione da :"+data.idChat);
 		socket.leave(data.idChat);
 	});
 	 
