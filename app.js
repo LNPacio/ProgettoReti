@@ -88,9 +88,11 @@ io.on('connection', function(socket){
 			console.log("[Server] messaggio emesso: "+ mittente+ "sulla chat "+data.idChat+data.dest);
 		}
 	});  
-	socket.on('disconnect', function(data) {
+	
+	socket.on('disc', function(data) {
 		console.log("Disconnessione da :"+data.idChat);
-		socket.leave(data.idChat);
+		//socket.leave(data.idChat);
+		socket.disconnect(true);
 	});
 	 
 });
