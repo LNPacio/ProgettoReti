@@ -131,7 +131,7 @@ function loadAmici(){
 			$('#listadegliamici').empty();
 			for(var line of msg)
 				$('#listadegliamici').append('<tr id='+line.utente.split("@")[0]+line.utente.split("@")[1]+' class="trAmici"><td name='+line.id+'><a id='+line.id+' name='+line.utente+' onClick="clickChat(this.id, this.name)">'+line.utente+'</a></td></tr>');
-			}
+			} 
 		}
 	});
 }
