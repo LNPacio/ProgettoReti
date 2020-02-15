@@ -155,13 +155,14 @@ function clickbutton(idChat){
 
 function clickChat(idChat, valore, contatore){
 	var splittato = "amico"+contatore;
-	$("#"+splittato).css({"background-color":"grey"});
+	
 	if(idChat != idChatGlobale){
 	if(idChatGlobale != null){
 		//alert("Disconnessione da: "+idChatGlobale);
-		$("#"+splittato).css({"background-color":""});
+		$(".trAmici").css({"background-color":""});
 		socket.emit('disc', {dest:destinatarioGlobale, txt:"Disconnessine", idChat:idChatGlobale});
 	}
+	$("#"+splittato).css({"background-color":"grey"});
 	$("#divChat").show();
 	$("#chatBox").empty();
 	destinatarioGlobale= valore;
