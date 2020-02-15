@@ -130,7 +130,7 @@ function loadAmici(){
 			if (msg.length > 0){
 			$('#listadegliamici').empty();
 			for(var line of msg)
-				$('#listadegliamici').append('<tr id='+line.utente+' class="trAmici"><td name='+line.id+'><a id='+line.id+' name='+line.utente+' onClick="clickChat(this.id, this.name)">'+line.utente+'</a></td></tr>');
+				$('#listadegliamici').append('<tr id='+line.utente.split("@")[0]+' class="trAmici"><td name='+line.id+'><a id='+line.id+' name='+line.utente+' onClick="clickChat(this.id, this.name)">'+line.utente+'</a></td></tr>');
 			}
 		}
 	});
