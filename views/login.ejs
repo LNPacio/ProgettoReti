@@ -4,10 +4,12 @@
         <link rel="shortcut icon" href="images/favicon_2.ico?1" />
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="google-signin-scope" content="profile email">
+		<meta name="google-signin-client_id" content="710894659667-qtrk5bnr8p5q9sud6ta184acbr14btjb.apps.googleusercontent.com.apps.googleusercontent.com">
+		<script src="https://apis.google.com/js/platform.js" async defer></script>
         <link href="css/bootstrap.min.css" rel="stylesheet"/>
         <link href="css/signin.css" rel="stylesheet">
         <script type="text/javascript" lang="javascript" src="javascripts/bootstrap.min.js"></script>
-        <script type="text/javascript" lang="javascript" src="javascripts/googleOauth.js"></script>
     </head>
     <body class="text-center"> 
         <div class = "div">
@@ -19,12 +21,24 @@
                 <a href="/signup">Sign up</a>
             </form>
         </div>
-        
-                <button id="sign-in-or-out-button"style="margin-left: 25px">Sign In/Authorize</button>
-				<button id="revoke-access-button"style="display: none; margin-left: 25px">Revoke access</button>
-				<div id="auth-status" style="display: inline; padding-left: 25px"></div><hr>
+        <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+    <script>
+      function onSignIn(googleUser) {
+        // Useful data for your client-side scripts:
+        var profile = googleUser.getBasicProfile();
+        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+        console.log('Full Name: ' + profile.getName());
+        console.log('Given Name: ' + profile.getGivenName());
+        console.log('Family Name: ' + profile.getFamilyName());
+        console.log("Image URL: " + profile.getImageUrl());
+        console.log("Email: " + profile.getEmail());
+
+        // The ID token you need to pass to your backend:
+        var id_token = googleUser.getAuthResponse().id_token;
+        console.log("ID Token: " + id_token);
+      }
+    </script>
+
            
     </body>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()" onreadystatechange="if (this.readyState === 'complete') this.onload()">
 </html>
