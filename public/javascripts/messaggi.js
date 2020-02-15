@@ -151,11 +151,11 @@ function clickbutton(idChat){
 }
 
 function clickChat(idChat, valore){
-	$("#"+valore).css("background-color":"#ff0000");
+	$("#"+valore).css({"background-color":"#ff0000"});
 	if(idChat != idChatGlobale){
 	if(idChatGlobale != null){
 		//alert("Disconnessione da: "+idChatGlobale);
-		$("#"+valore).css("background-color":"#ff0000");
+		$("#"+valore).css({"background-color":"#ff0000"});
 		socket.emit('disc', {dest:destinatarioGlobale, txt:"Disconnessine", idChat:idChatGlobale});
 	}
 	$("#divChat").show();
