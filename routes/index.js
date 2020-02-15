@@ -20,7 +20,7 @@ router.get('/signup', function(req, res, next) {
 const url = require('url'); 
 router.get('/signupG', function(req, res, next) {
   //res.send("Ciao");
-   res.redirect(url.format({
+   res.send(url.format({
        pathname:"/signupG",
        query: {
           "name": req.body.name,
