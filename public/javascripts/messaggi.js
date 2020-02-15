@@ -160,8 +160,10 @@ function clickChat(idChat, valore){
 	alert("Debug");
 	
 	socket.on('message', function(message) {
-			text = message.mitt +":\n"+message.txt;
-			insertChat("me", text, 0);
+			if(message.dest != destinatarioGlobale){
+				text = message.mitt +":\n"+message.txt;
+				insertChat("me", text, 0);
+			}
 		});
 }
 
