@@ -131,7 +131,7 @@ function loadAmici(){
 			$('#listadegliamici').empty();
 			var contatore = 0;
 			for(var line of msg){
-				$('#listadegliamici').append('<tr id="amico"'+contatore+' class="trAmici"><td name='+line.id+'><a id='+line.id+' name='+line.utente+' onClick="clickChat(this.id, this.name,'+contatore+')">'+line.utente+'</a></td></tr>');
+				$('#listadegliamici').append('<tr id="amico'+contatore+'" class="trAmici"><td name='+line.id+'><a id='+line.id+' name='+line.utente+' onClick="clickChat(this.id, this.name,'+contatore+')">'+line.utente+'</a></td></tr>');
 				contatore++;
 			}
 			} 
