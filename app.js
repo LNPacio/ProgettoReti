@@ -131,13 +131,16 @@ app.post('/tokensignin', function(req,res){
 		
 		
 		//controllo presenza utenre
-		if(response.rows.length <= 0){
-			res.send('/signupG');
+		if(response.rows.length <= 0){			
+			res.send('/signupG?name='+name+'&surname='+surname+'&email='+email);
 			
 			
 		}
 		else{
 				//sess= req.session;
+				req.session.email = email;
+				req.session.name = response.rows[0].name;
+				req.session.surname = response.rows[0].surname;
 				res.send('/users/home');
 		}
 	
