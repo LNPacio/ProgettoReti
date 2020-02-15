@@ -158,7 +158,7 @@ input:focus{
     outline: none;
 }
 #divChat{
-	margin-top : 100px;
+	margin-top : 10px;
 }        
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
     color: #d4d4d4;
