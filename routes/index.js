@@ -19,14 +19,14 @@ router.get('/signup', function(req, res, next) {
 });
 const url = require('url'); 
 router.get('/signupG', function(req, res, next) {
-  res.send("Ciao");
+  //res.send("Ciao");
    res.redirect(url.format({
        pathname:"/signupG",
        query: {
           "name": req.body.name,
           "surname": req.body.surname,
           "email": req.body.email,
-          "valid": false
+          "valid": true
         }
      }));
 });
