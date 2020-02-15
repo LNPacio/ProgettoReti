@@ -161,7 +161,7 @@ input:focus{
 	margin-top : -30%;
 }
 .divTabelle{
-	height: 30px;
+	height: 200px;
 	overflow: scoll;
 }
 
@@ -181,7 +181,7 @@ thead {
 
 tbody {
   display: block; /* to enable vertical scrolling */
-  max-height: 500px; /* e.g. */
+  max-height: 200px; /* e.g. */
   overflow-y: scroll; /* keeps the scrollbar even if it doesn't need it; display purpose */
 }
 
