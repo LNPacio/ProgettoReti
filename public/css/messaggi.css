@@ -160,11 +160,7 @@ input:focus{
 #divChat{
 	margin-top : -30%;
 }
-#listadegliamici{
-	height: 10px;
-	overflow-y: auto;
-}
-#listadellerichieste{
+.divTabelle{
 	height: 10px;
 	overflow-y: auto;
 }
