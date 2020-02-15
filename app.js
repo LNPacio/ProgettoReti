@@ -119,7 +119,7 @@ io.on('connection', function(socket){
  
 //login google
 app.post('/tokensignin', function(req,res){
-	if(verify(req.body.idtoken).catch(console.error)){
+	//if(verify(req.body.idtoken).catch(console.error)){
 		res.send("Volevi!");
 	}
 	var name = req.body.givenname;
