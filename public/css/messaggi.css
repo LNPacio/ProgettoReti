@@ -129,6 +129,11 @@ main{
     flex-direction: column;
 
 }
+
+.tdselec{
+  background-color:#ff0000;
+}
+
 .msj:before{
     width: 0;
     height: 0;
