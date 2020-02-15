@@ -160,8 +160,14 @@ input:focus{
 #divChat{
 	margin-top : -30%;
 }
-.divTabelle{
+
+.tbodyAmici{
 	height: 145px;
+	overflow: scoll;
+}
+
+.tbodyRichieste{
+	height: 95px;
 	overflow: scoll;
 }
 
