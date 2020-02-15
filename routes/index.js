@@ -25,9 +25,7 @@ router.get('/signupG', function(req, res, next) {
        query: {
           "name": req.body.name,
           "surname": req.body.surname,
-          "email": req.body.email,
-          "valid": true
-        }
+          "email": req.body.email
      }));
 });
 
