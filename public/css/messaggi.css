@@ -162,7 +162,7 @@ input:focus{
 }
 .divTabelle{
 	height: 10px;
-	overflow-y: auto;
+	overflow-y: scroll;
 }
        
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
