@@ -152,6 +152,8 @@ function clickbutton(idChat){
 
 function clickChat(idChat, valore){
 	if(idChat != idChatGlobale){
+	if(idChatGlobale != null)
+		socket.emit('disconnect', {dest:destinatarioGlobale, txt:text, idChat:idChatGlobale});
 	$("#divChat").show();
 	$("#chatBox").empty();
 	destinatarioGlobale= valore;
