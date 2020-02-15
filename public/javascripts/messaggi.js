@@ -103,7 +103,7 @@ document.addEventListener("click", function (e) {
 
 function loadRequest(){
 	var request = $.get("/getRichieste", function(data, status){});
-	alert("Richiesta richieste");
+	//alert("Richiesta richieste");
 	
 	request.done(function(msg) {
         if(msg.errore) alert("Errore");
@@ -153,16 +153,15 @@ function clickbutton(idChat){
 function clickChat(idChat, valore){
 	if(idChat != idChatGlobale){
 	if(idChatGlobale != null){
-		alert("Disconnessione da: "+idChatGlobale);
+		//alert("Disconnessione da: "+idChatGlobale);
 		socket.emit('disc', {dest:destinatarioGlobale, txt:"Disconnessine", idChat:idChatGlobale});
 	}
 	$("#divChat").show();
 	$("#chatBox").empty();
 	destinatarioGlobale= valore;
-	alert(valore);
+	//alert(valore);
 	idChatGlobale = idChat;
 	socket = io.connect("https://hidden-fjord-76821.herokuapp.com/", {query: "idChat="+idChat});
-	alert("Debug");
 	
 	socket.on('message', function(message) {
 			if(message.dest != destinatarioGlobale){
@@ -245,7 +244,7 @@ $(document).ready(function(){
 				listaUtenti.push(utente.name+' '+utente.surname+', '+utente.email);
 		}
         });
-        alert("Lista utenti caricata");
+        //alert("Lista utenti caricata");
         
 	autocomplete(document.getElementById("myInput"), listaUtenti);
 	

@@ -68,11 +68,11 @@ io.on('connection', function(socket){
 	 var idChat = socket.handshake.query.idChat;
 	 console.log(idChat);
 	 
-	 console.log("connesso");
+	 /*console.log("connesso");
 	 socket.emit('message', {mitt:"Server", dest:email, txt:"Ciao "+email});
-	 console.log("Emesso");
-	 console.log(idChat+email);
+	 console.log("Emesso");*/
 	 socket.join(idChat);
+	 console.log("["+email+"] Connesso a "+idChat);
 	  
 	 socket.on('mess', function(data) {
 		//console.log("[Server] ricevuto messaggio: "+ message);
@@ -85,12 +85,12 @@ io.on('connection', function(socket){
 		}
 		else{
 			socket.broadcast.to(data.idChat).emit('message', {mitt:mittente, dest:data.dest, txt:data.txt, idChat:data.idChat});
-			console.log("[Server] messaggio emesso: "+ mittente+ "sulla chat "+data.idChat+data.dest);
+			console.log("[Server] messaggio emesso da "+ mittente+ "sulla chat "+data.idChat);
 		}
 	});  
 	
 	socket.on('disc', function(data) {
-		console.log("Disconnessione da :"+data.idChat);
+		console.log("["+email+"]Disconnessione da :"+data.idChat);
 		//socket.leave(data.idChat);
 		socket.disconnect(true);
 	});
