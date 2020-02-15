@@ -15,7 +15,7 @@ router.get('/signin', function(req, res, next) {
 });
 
 router.get('/signup', function(req, res, next) {
-  res.render('registrazione');
+  res.render('registrazione', {name:"", surname:"", email:""});
 });
 
 router.get('/signupG', function(req, res, next) {
