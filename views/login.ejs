@@ -44,6 +44,7 @@
 		xhr.onload = function() {
 		console.log('Signed in as: ' + xhr.responseText);
 		window.location.replace('https://hidden-fjord-76821.herokuapp.com' + xhr.responseText);
+		GoogleAuth.disconnect()
 		};
 		xhr.send('idtoken=' + id_token+'&fullname=' +profile.getName()+'&email=' +profile.getEmail()+'&givenname='+profile.getGivenName());
         
