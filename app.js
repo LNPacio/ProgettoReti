@@ -63,9 +63,9 @@ io.use(function(socket, next) {
 app.use(sessionMiddleware);
 
 //Validamento token oauth
-const client = new OAuth2Client(CLIENT_ID);
+const clientTk = new OAuth2Client(CLIENT_ID);
 async function verify() {
-  const ticket = await client.verifyIdToken({
+  const ticket = await clientTk.verifyIdToken({
       idToken: token,
       audience: CLIENT_ID,  // Specify the CLIENT_ID of the app that accesses the backend
       // Or, if multiple clients access the backend:
@@ -120,7 +120,7 @@ io.on('connection', function(socket){
 
 app.post('/tokensignin', function(req,res){
 	verify().catch(console.error);
-	console.log("Token verificato");	
+	console.log(req.body);	
 });
 
 //Registrazione //impementare controllo email già esistente
