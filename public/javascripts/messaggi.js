@@ -153,8 +153,8 @@ function clickbutton(idChat){
 function clickChat(idChat, valore){
 	if(idChat != idChatGlobale){
 	if(idChatGlobale != null){
-		alert(idChatGlobale);
-		socket.emit('disconnect', {dest:destinatarioGlobale, txt:text, idChat:idChatGlobale});
+		alert("Disconnessione da: "+idChatGlobale);
+		socket.emit('disconnect', {dest:destinatarioGlobale, txt:"Disconnessine", idChat:idChatGlobale});
 	}
 	$("#divChat").show();
 	$("#chatBox").empty();
