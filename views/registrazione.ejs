@@ -14,9 +14,9 @@
         <div class="div">
             <form class="form-sign" method="POST" name="form_registrazione" onSubmit="return corretta()">
                 <h1 class="h3 mb-3 font-weight-normal">Please sign up</h1>
-                <input type="text" name="name" class="form-control" placeholder="Name" required autofocus/><br>
-                <input type="text" name="surname" class="form-control" placeholder="Surname" required autofocus/><br>
-                <input type="email" name="inputEmail" class="form-control" placeholder="Email address" required autofocus/><br>
+                <input type="text" name="name" class="form-control" placeholder="Name" required autofocus/><%=name%><br>
+                <input type="text" name="surname" class="form-control" placeholder="Surname" required autofocus/><%=surname%><br>
+                <input type="email" name="inputEmail" class="form-control" placeholder="Email address" required autofocus/><%=email%><br>
                 <input type="password" name="inputPassword" class="form-control" placeholder="Password" required/><br>
                 <input type="password" name="controllaPassword" class="form-control"placeholder="Confirm password" required><br>
                 <button class="btn btn-sm btn btn-outline-primary btn-block" type="submit" name = "registrationButton" >Sign up</button> 

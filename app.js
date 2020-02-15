@@ -117,13 +117,40 @@ io.on('connection', function(socket){
 });
 
  
-
+//login google
 app.post('/tokensignin', function(req,res){
-	verify(req.body.idtoken).catch(console.error);
-	console.log(req.body);	
+	if(verify(req.body.idtoken).catch(console.error)){
+		res.send("Volevi!");
+	}
+	var name = req.body.givenname;
+	var surname = req.body.fullname.split(name+" ")[1];
+	var email = req.body.email;
+	
+	client.query('SELECT name, surname from utente where email = $1', [email], (err, response) => {
+		if (err) throw err;
+		
+		
+		//controllo presenza utenre
+		if(response.rows.length <= 0){
+			req.session.email = email;
+			req.session.name = name;
+			req.session.surname = surname;
+			res.redirect('/signupG');
+			
+			
+		}
+		else{
+				//sess= req.session;
+				req.session.email = email;
+				req.session.name = response.rows[0].name;
+				req.session.surname = response.rows[0].surname;
+				res.redirect('/users/home');
+		}
+	
+	
 });
 
-//Registrazione //impementare controllo email già esistente
+//Registrazione 
 app.post('/signup', function(req,res){
 	
 	var name = req.body.name;
@@ -146,7 +173,7 @@ app.post('/signup', function(req,res){
 		
 	});
 	res.redirect('/signin');
-		}
+		} 
 	});
 	
 });

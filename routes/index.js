@@ -18,4 +18,8 @@ router.get('/signup', function(req, res, next) {
   res.render('registrazione');
 });
 
+router.get('/signupG', function(req, res, next) {
+  res.render('registrazione', {name: req.session.name, surname: req.session.surname, email: req.session.email});
+});
+
 module.exports = router;
