@@ -154,7 +154,6 @@ function clickbutton(idChat){
 }
 
 function clickChat(idChat, valore, contatore){
-	alert(contatore);
 	var splittato = "amico"+contatore;
 	$("#"+splittato).css({"background-color":"grey"});
 	if(idChat != idChatGlobale){
