@@ -1,11 +1,12 @@
 var express = require('express');
 var router = express.Router();
-var app = express();
 var session = require('express-session');
+var bello;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.redirect('/signin');
+  bello=res;
 });
 
 router.get('/signin', function(req, res, next) {
@@ -23,7 +24,7 @@ router.get('/signupG', function(req, res, next) {
   res.send("Ciao");
   next();
 }, function (req, res) {
-   app.render('registrazione', {name: req.body.name, surname: req.body.surname, email: req.body.email});
+   bello.render('registrazione', {name: req.body.name, surname: req.body.surname, email: req.body.email});
 });
 
 module.exports = router;
