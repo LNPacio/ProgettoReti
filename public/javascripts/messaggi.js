@@ -151,8 +151,9 @@ function clickbutton(idChat){
 }
 
 function clickChat(idChat, valore){
+	if(idChat != idChatGlobale){
 	$("#divChat").show();
-	//$("#chatBox").empty();
+	$("#chatBox").empty();
 	destinatarioGlobale= valore;
 	alert(valore);
 	idChatGlobale = idChat;
@@ -165,6 +166,8 @@ function clickChat(idChat, valore){
 				insertChat("me", text, 0);
 			}
 		});
+	}
+	else alert("Questa chat è già aperta!");
 }
 
 
