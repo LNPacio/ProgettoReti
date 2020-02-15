@@ -6,6 +6,7 @@ body {
   /*the container must be positioned relative:*/
   position: relative;
   display: inline-block;
+  margin-top : 10%
 }
 .scendi{
 	top:50px;
