@@ -158,14 +158,14 @@ input:focus{
     outline: none;
 }
 #divChat{
-	margin-top : 10px;
+	margin-top : -30%;
 }
 #listadegliamici{
-	height: 30px;
+	height: 10px;
 	overflow-y: auto;
 }
 #listadellerichieste{
-	height: 30px;
+	height: 10px;
 	overflow-y: auto;
 }
        
