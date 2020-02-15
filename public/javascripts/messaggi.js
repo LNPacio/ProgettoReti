@@ -251,7 +251,7 @@ $(document).ready(function(){
 $('.trAmici').click(function(){
 $('.trAmici').removeClass('tdselec');
 $(this).addClass('tdselec');
-})	
+});
 	
 
 $("#ao").on("keyup", function(e){
