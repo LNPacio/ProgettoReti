@@ -25,7 +25,7 @@ router.get('/signupG', function(req, res, next) {
 	var surname = params[1].split("=")[1];
 	var email = params[2].split("=")[1];
 	console.log("Parametri: "+name+surname+email);
-	res.render('registrazione', {name: req.body.name, surname: req.body.surname, email: req.body.email});
+	res.render('registrazione', {name: name, surname: surname, email: email});
 });
 
 module.exports = router;
