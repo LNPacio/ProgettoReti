@@ -20,8 +20,11 @@ router.get('/signup', function(req, res, next) {
 });
 
 router.get('/signupG', function(req, res, next) {
-	var params=url.parse(req.url).query
-	console.log(params);
+	var params=url.parse(req.url).query.split('&');
+	var name = params[0].split("=")[1];
+	var surname = params[1].split("=")[1];
+	var email = params[2].split("=")[1];
+	console.log("Parametri: "+name+surname+email);
 	res.render('registrazione', {name: req.body.name, surname: req.body.surname, email: req.body.email});
 });
 
