@@ -130,7 +130,7 @@ function loadAmici(){
 			if (msg.length > 0){
 			$('#listadegliamici').empty();
 			for(var line of msg)
-				$('#listadegliamici').append('<tr class="trAmici"><td name='+line.id+'><a id='+line.id+' name='+line.utente+' onClick="clickChat(this.id, this.name)">'+line.utente+'</a></td></tr>');
+				$('#listadegliamici').append('<tr id='+line.utente+' class="trAmici"><td name='+line.id+'><a id='+line.id+' name='+line.utente+' onClick="clickChat(this.id, this.name)">'+line.utente+'</a></td></tr>');
 			}
 		}
 	});
@@ -151,9 +151,11 @@ function clickbutton(idChat){
 }
 
 function clickChat(idChat, valore){
+	$("#"+valore).css("background-color":"#ff0000");
 	if(idChat != idChatGlobale){
 	if(idChatGlobale != null){
 		//alert("Disconnessione da: "+idChatGlobale);
+		$("#"+valore).css("background-color":"#ff0000");
 		socket.emit('disc', {dest:destinatarioGlobale, txt:"Disconnessine", idChat:idChatGlobale});
 	}
 	$("#divChat").show();
@@ -248,10 +250,7 @@ $(document).ready(function(){
         
 	autocomplete(document.getElementById("myInput"), listaUtenti);
 	
-$('.trAmici').click(function(){
-$('.trAmici').removeClass('tdselec');
-$(this).addClass('tdselec');
-});
+
 	
 
 $("#ao").on("keyup", function(e){
