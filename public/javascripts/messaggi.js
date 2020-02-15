@@ -129,8 +129,11 @@ function loadAmici(){
         else{
 			if (msg.length > 0){
 			$('#listadegliamici').empty();
-			for(var line of msg)
-				$('#listadegliamici').append('<tr id='+line.utente.split("@")[0]+line.utente.split("@")[1].split(".")[0]+line.utente.split("@")[1].split(".")[1]+' class="trAmici"><td name='+line.id+'><a id='+line.id+' name='+line.utente+' onClick="clickChat(this.id, this.name)">'+line.utente+'</a></td></tr>');
+			var contatore = 0;
+			for(var line of msg){
+				$('#listadegliamici').append('<tr id="amico"'+contatore+' class="trAmici"><td name='+line.id+'><a id='+line.id+' name='+line.utente+' onClick="clickChat(this.id, this.name,'+contatore+')">'+line.utente+'</a></td></tr>');
+				contatore++;
+			}
 			} 
 		}
 	});
@@ -150,8 +153,9 @@ function clickbutton(idChat){
      
 }
 
-function clickChat(idChat, valore){
-	var splittato =valore.split("@")[0]+valore.split("@")[1].split(".")[0]+valore.split("@")[1].split(".")[1];
+function clickChat(idChat, valore, contatore){
+	alert(contatore);
+	var splittato = "amico"+contatore;
 	$("#"+splittato).css({"background-color":"#ff0000"});
 	if(idChat != idChatGlobale){
 	if(idChatGlobale != null){
