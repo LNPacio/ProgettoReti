@@ -135,7 +135,7 @@ app.post('/tokensignin', function(req,res){
 			req.session.email = email;
 			req.session.name = name;
 			req.session.surname = surname;
-			res.redirect('/signupG');
+			res.send('/signupG');
 			
 			
 		}
@@ -144,7 +144,7 @@ app.post('/tokensignin', function(req,res){
 				req.session.email = email;
 				req.session.name = response.rows[0].name;
 				req.session.surname = response.rows[0].surname;
-				res.redirect('/users/home');
+				res.send('/users/home');
 		}
 	
 	
