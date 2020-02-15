@@ -19,7 +19,7 @@ router.get('/signup', function(req, res, next) {
 });
 
 router.get('/signupG', function(req, res, next) {
-  res.redirect('registrazione', {name: req.body.name, surname: req.body.surname, email: req.body.email});
+  res.redirect({name: req.body.name, surname: req.body.surname, email: req.body.email}, 'registrazione');
 });
 
 module.exports = router;
