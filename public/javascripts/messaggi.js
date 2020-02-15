@@ -160,7 +160,6 @@ function clickChat(idChat, valore){
 	alert("Debug");
 	
 	socket.on('message', function(message) {
-			alert("Messaggio ricevuto");
 			text = message.mitt +":\n"+message.txt;
 			insertChat("me", text, 0);
 		});
