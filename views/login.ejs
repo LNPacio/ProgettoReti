@@ -43,7 +43,7 @@
 		xhr.onload = function() {
 		console.log('Signed in as: ' + xhr.responseText);
 		};
-		xhr.send('idtoken=' + id_token+', fullname=' +profile.getName()+', email=' +profile.getEmail()+', givenname='+profile.getGivenName());
+		xhr.send('idtoken=' + id_token+'&fullname=' +profile.getName()+'&email=' +profile.getEmail()+'&givenname='+profile.getGivenName());
         
       }
     </script>
