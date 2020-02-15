@@ -22,8 +22,6 @@ router.get('/signup', function(req, res, next) {
 
 router.get('/signupG', function(req, res, next) {
   res.send("Ciao");
-  next();
-}, function (req, res) {
    bello.render('registrazione', {name: req.body.name, surname: req.body.surname, email: req.body.email});
 });
 
