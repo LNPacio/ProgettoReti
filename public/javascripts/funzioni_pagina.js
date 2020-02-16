@@ -7,7 +7,6 @@ function clientOpenWeather(){
   var data = document.getElementById("data").value;
   if (data == ""){
     alert("Inserire una data");
-    break;
   }
   var path = 'https://api.openweathermap.org/data/2.5/forecast?q=' + cityName + '&APPID=2f75a108e91deb708a808543db5dc6df';
     
