@@ -5,7 +5,7 @@ function clientOpenWeather(){
   var valueToReturn = null;
   var cityName = document.getElementById("address").value;
   var data = document.getElementById("data").value;
-  if (data == ""){
+  while (data == ""){
     alert("Inserire una data");
   }
   var path = 'https://api.openweathermap.org/data/2.5/forecast?q=' + cityName + '&APPID=2f75a108e91deb708a808543db5dc6df';
