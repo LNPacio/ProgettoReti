@@ -67,5 +67,6 @@ code {
 
 .table{
   background-color: red;
-  height: 50px;
+  height: 10%;
+  border-color: blue;
 }
