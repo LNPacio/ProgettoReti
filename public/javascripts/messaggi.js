@@ -275,9 +275,10 @@ $("#ao").on("keyup", function(e){
 
 $("#selezionaUtente").click(function(){
   var array = $("#myInput").val().split(", ");
-  if(array.length > 0){
+  
 	//$("#divChat").show();
-	var destinat = array[1];
+  var destinat = array[1];
+  if(destinat == ""){
 	//alert(destinatario);
 	//resetChat();
 	var request = $.post("/invioRichiesta", {destinatario: destinat} ,function(data, status){});
