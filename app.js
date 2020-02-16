@@ -187,7 +187,7 @@ app.post('/signup', function(req,res){
 app.post('/signin', function(req,res){
 	
     var email = req.body.inputEmail;
-    var password = crypto.createHash('md5').update(req.body.inputPassword).digest("hex");
+    var password = crypto.createHash('md5').update(req.body.inputPassword).digest("hex");req.body.inputPassword;
     
 	client.query('SELECT password, name, surname from utente where email = $1', [email], (err, response) => {
 		if (err) throw err;
@@ -195,7 +195,7 @@ app.post('/signin', function(req,res){
 		
 		//controllo presenza utenre
 		if(response.rows.length <= 0){
-			res.send('<html><body>Utente non registrato <a> Premi qui</a></body></html>');
+			res.send('<html><body>Utente non registrato</body></html>');
 		}
 		else{
 			if(response.rows[0].password == password){
