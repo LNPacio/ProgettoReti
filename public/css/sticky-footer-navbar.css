@@ -51,7 +51,7 @@ code {
 .div2{
   width: 55%;
   position: absolute;
-  top: 200px;
+  top: 100px;
   left: -110px;
   height: 10px;
 }
@@ -67,6 +67,5 @@ code {
 }
 
 .table{
-  height: 10%;
-  border-color: blue;
+  background-color: red;
 }
