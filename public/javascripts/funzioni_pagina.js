@@ -5,33 +5,35 @@ function clientOpenWeather(){
   var valueToReturn = null;
   var cityName = document.getElementById("address").value;
   var data = document.getElementById("data").value;
-  while (data == ""){
+  if (data != ""){
+    var path = 'https://api.openweathermap.org/data/2.5/forecast?q=' + cityName + '&APPID=2f75a108e91deb708a808543db5dc6df';
+      
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", path, false ); // false for synchronous request
+    xmlHttp.send( null );
+    var responseObject = JSON.parse(xmlHttp.responseText);
+    if (responseObject.cod == "404"){
+      alert("Error: " +responseObject.cod + " Message: " +responseObject.message);
+      }
+    if (responseObject.cod == "400"){
+      alert("Error: " +responseObject.cod + " Message: " + responseObject.message);
+      }
+    document.getElementById("infocitta").innerHTML = "City: " + responseObject.city.name + " (" + responseObject.city.country + ")"; 
+    cityNameSelect = responseObject.city.name;
+    name_city_cap = responseObject.city.name + ','+responseObject.city.country;
+    var returnObject = {};
+    var list = responseObject.list;
+    for (var item of list){
+      var currentDate = item.dt_txt;
+      if (currentDate.indexOf(data) != -1){
+        returnObject[currentDate] = item;
+      }
+    }
+    fillTable(returnObject);
+  }
+  else{
     alert("Inserire una data");
   }
-  var path = 'https://api.openweathermap.org/data/2.5/forecast?q=' + cityName + '&APPID=2f75a108e91deb708a808543db5dc6df';
-    
-  var xmlHttp = new XMLHttpRequest();
-  xmlHttp.open( "GET", path, false ); // false for synchronous request
-  xmlHttp.send( null );
-  var responseObject = JSON.parse(xmlHttp.responseText);
-  if (responseObject.cod == "404"){
-    alert("Error: " +responseObject.cod + " Message: " +responseObject.message);
-    }
-  if (responseObject.cod == "400"){
-    alert("Error: " +responseObject.cod + " Message: " + responseObject.message);
-    }
-  document.getElementById("infocitta").innerHTML = "City: " + responseObject.city.name + " (" + responseObject.city.country + ")"; 
-  cityNameSelect = responseObject.city.name;
-  name_city_cap = responseObject.city.name + ','+responseObject.city.country;
-  var returnObject = {};
-  var list = responseObject.list;
-  for (var item of list){
-    var currentDate = item.dt_txt;
-    if (currentDate.indexOf(data) != -1){
-      returnObject[currentDate] = item;
-    }
-  }
-  fillTable(returnObject);
 }
   
 function fillTable(returnObject){
