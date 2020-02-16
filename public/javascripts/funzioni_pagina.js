@@ -124,7 +124,7 @@ function onSuccess(result) {
 
 //Step 1: initialize communication with the platform
 var platform = new H.service.Platform({
-  apikey: window.apikey   //contenuta in test-credential.js
+  apikey: window.apikey  
 });
 var defaultLayers = platform.createDefaultLayers();
 
