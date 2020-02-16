@@ -174,6 +174,7 @@ function clickChat(idChat, valore, contatore){
 			if(message.dest != destinatarioGlobale){
 				text = message.mitt +":\n"+message.txt;
 				insertChat("me", text, 0);
+				$("#chatBox").animate({ scrollTop: $('#chatBox').prop("scrollHeight")}, 1000);
 			}
 		});
 	}
@@ -265,6 +266,7 @@ $("#ao").on("keyup", function(e){
 			socket.emit('mess', {dest:destinatarioGlobale, txt:text, idChat:idChatGlobale});
             insertChat("notme", text);              
             $(this).val('');
+            $("#chatBox").animate({ scrollTop: $('#chatBox').prop("scrollHeight")}, 1000);
         
         }
     }
