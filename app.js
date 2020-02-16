@@ -158,7 +158,7 @@ app.post('/signup', function(req,res){
     var email = req.body.inputEmail;
 	var password = req.body.inputPassword;
 	var surname = req.body.surname;
-	console.log(md5("ciao"));
+
     
     client.query('SELECT email from utente where email = $1', [email], (err, response) => {
 		if (err) throw err;
