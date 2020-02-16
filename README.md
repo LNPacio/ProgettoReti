@@ -5,4 +5,4 @@
 
 [Il sito è hostato su heroku](https://hidden-fjord-76821.herokuapp.com/)
 
-## [API](/restApi.md)
+## [API](../restApi.md)
