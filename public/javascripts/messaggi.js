@@ -278,7 +278,7 @@ $("#selezionaUtente").click(function(){
   
 	//$("#divChat").show();
   var destinat = array[1];
-  if(destinat == ""){
+  if(destinat != ""){
 	//alert(destinatario);
 	//resetChat();
 	var request = $.post("/invioRichiesta", {destinatario: destinat} ,function(data, status){});
