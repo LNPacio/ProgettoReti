@@ -153,7 +153,8 @@ app.post('/signup', function(req,res){
 	
 	var name = req.body.name;
     var email = req.body.inputEmail;
-    var password = md5(req.body.inputPassword);
+	var password = md5(req.body.inputPassword);
+	
     var surname = req.body.surname;
     
     client.query('SELECT email from utente where email = $1', [email], (err, response) => {
