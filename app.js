@@ -6,8 +6,6 @@ var logger = require('morgan');
 var session = require('express-session');
 const {OAuth2Client} = require('google-auth-library');
 
-var md5 = require('md5');
-
 
 const CLIENT_ID = '710894659667-qtrk5bnr8p5q9sud6ta184acbr14btjb.apps.googleusercontent.com';
 
