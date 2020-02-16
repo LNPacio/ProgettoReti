@@ -118,9 +118,9 @@ function onSuccess(result) {
  * This function will be called if a communication error occurs during the JSON-P request
  * @param  {Object} error  The error message received.
  */
-function onError(error) {
+/*function onError(error) {
   alert('Can\'t reach the remote server');
-}
+}*/
 
 //Step 1: initialize communication with the platform
 var platform = new H.service.Platform({
