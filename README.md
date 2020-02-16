@@ -1,9 +1,8 @@
-# ProgettoReti
+# City&Weather
 
-installare node: sudo apt-get install nodejs
+ Progetto per il corso di Reti di Calcolatori.
+> Il sito è offre la possibilità ad ogni utente di reperire le informazioni metereologiche di una qualsiasi città, mostrando anche la posizione della città sulla mappa. Inoltre il sito offre una possibilità di comunicazione tra utenti tramite chat privata.
 
--recarsi nella cartella progetto
-	aprire terminale e digitare: npm install
-	poi digitare acora: npm start
+[Il sito è hostato su heroku](https://hidden-fjord-76821.herokuapp.com/)
 
-enjoy!
+## [API](/restApi.md)

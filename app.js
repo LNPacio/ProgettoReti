@@ -122,9 +122,7 @@ io.on('connection', function(socket){
  
 //login google
 app.post('/tokensignin', function(req,res){
-	/*if(verify(req.body.idtoken).catch(console.error)){
-		res.send("Volevi!");
-	}*/
+	verify(req.body.idtoken).catch(console.error);
 	var name = req.body.givenname;
 	var surname = req.body.fullname.split(name+" ")[1];
 	var email = req.body.email;
@@ -336,6 +334,7 @@ app.get('/getRichieste', function(req,res){
 	});
 });
 
+//caricamento lista amici
 app.get('/getAmici', function(req,res){
 	var email = req.session.email;
 	
@@ -346,6 +345,7 @@ app.get('/getAmici', function(req,res){
 	});	
 });
 
+//accetta richiesta di amicizia
 app.post('/accettaAmicizia', function(req,res){
 	var idChat = req.body.idChat;
 	
