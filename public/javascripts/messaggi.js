@@ -275,28 +275,24 @@ $("#ao").on("keyup", function(e){
 
 $("#selezionaUtente").click(function(){
   var array = $("#myInput").val().split(", ");
-  if (array.length > 0){
-    //$("#divChat").show();
-    var destinat = array[1];
-    //alert(destinatario);
-    //resetChat();
-    var request = $.post("/invioRichiesta", {destinatario: destinat} ,function(data, status){});
-    request.done(function(msg) {
-          if(msg.errore) alert("Errore");
-          else alert(msg);
-          });
-      
-      /*request.done(function(msg) {
-          if(msg.errore) alert("Errore");
-          else{
-        for(var utente of msg)
-          alert("Richiesta inviata");
-      }
-      });*/
-  }
-  else{
-    alert("Inserire un utente");
-  }
+  alert(array);
+	//$("#divChat").show();
+	var destinat = array[1];
+	//alert(destinatario);
+	//resetChat();
+	var request = $.post("/invioRichiesta", {destinatario: destinat} ,function(data, status){});
+	request.done(function(msg) {
+        if(msg.errore) alert("Errore");
+        else alert(msg);
+        });
+		
+		/*request.done(function(msg) {
+        if(msg.errore) alert("Errore");
+        else{
+			for(var utente of msg)
+				alert("Richiesta inviata");
+		}
+		});*/
  
 	
 });
