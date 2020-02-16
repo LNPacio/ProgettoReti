@@ -275,7 +275,7 @@ $("#ao").on("keyup", function(e){
 
 $("#selezionaUtente").click(function(){
   var array = $("#myInput").val().split(", ");
-  alert(array);
+  alert(array.length);
 	//$("#divChat").show();
 	var destinat = array[1];
 	//alert(destinatario);
