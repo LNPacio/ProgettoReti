@@ -4,9 +4,8 @@ var name_city_cap = '';
 function clientOpenWeather(){
   var valueToReturn = null;
   var cityName = document.getElementById("address").value;
-  alert(cityName);
   var data = document.getElementById("data").value;
-  if (data != ""){
+  if (data != "" || cityName != ""){
     var path = 'https://api.openweathermap.org/data/2.5/forecast?q=' + cityName + '&APPID=2f75a108e91deb708a808543db5dc6df';
       
     var xmlHttp = new XMLHttpRequest();
@@ -32,8 +31,8 @@ function clientOpenWeather(){
     }
     fillTable(returnObject);
   }
-  else{
-    alert("Inserire una data");
+  else if (data != "null"){
+    alert("Inserire data");
   }
 }
   
