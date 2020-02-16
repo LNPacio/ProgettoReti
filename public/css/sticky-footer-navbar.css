@@ -66,3 +66,7 @@ code {
   left : 50%;
 }
 
+.table{
+  width: 20%;
+  background-color: blue;
+}
