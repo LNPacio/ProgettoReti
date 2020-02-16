@@ -6,7 +6,6 @@ var logger = require('morgan');
 var session = require('express-session');
 const {OAuth2Client} = require('google-auth-library');
 
-
 const CLIENT_ID = '710894659667-qtrk5bnr8p5q9sud6ta184acbr14btjb.apps.googleusercontent.com';
 
 
@@ -154,9 +153,8 @@ app.post('/signup', function(req,res){
 	
 	var name = req.body.name;
     var email = req.body.inputEmail;
-	var password = req.body.inputPassword;
-	var surname = req.body.surname;
-
+    var password = req.body.inputPassword;
+    var surname = req.body.surname;
     
     client.query('SELECT email from utente where email = $1', [email], (err, response) => {
 		if (err) throw err;
