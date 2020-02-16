@@ -11,4 +11,10 @@ CREATE TABLE luoghi (
 );
 
 
+CREATE TABLE chat (
+  id varchar(80) primary key,
+  stato varchar(45),
+  utente1 varchar(45),
+  utente2 varchar(45)
+);
 
