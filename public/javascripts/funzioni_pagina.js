@@ -5,6 +5,7 @@ function clientOpenWeather(){
   var valueToReturn = null;
   var cityName = document.getElementById("address").value;
   var data = document.getElementById("data").value;
+  alert(data);
   var path = 'https://api.openweathermap.org/data/2.5/forecast?q=' + cityName + '&APPID=2f75a108e91deb708a808543db5dc6df';
     
   var xmlHttp = new XMLHttpRequest();
@@ -64,19 +65,20 @@ $(document).ready(function(){
 	$("#aggiungi_città").click(function(){
 		var request = $.post("/add_city", {città: cityNameSelect}, function(data, status){});
 		request.done(function(msg) {
-        if(msg.errore) alert("Errore");
-        else alert(msg);
-        });
+      if(msg.errore) alert("Errore");
+      else alert(msg);
+    });
 	});
 	
 	//funzione per aggiungere città
 	$("#rimuovi_città").click(function(){
 		var request = $.post("/remove_city", {città: cityNameSelect}, function(data, status){});
 		request.done(function(msg) {
-        if(msg.errore) alert("Errore");
-        else alert(msg);
-        });
-	});
+      if(msg.errore) alert("Errore");
+      else alert(msg);
+    });
+  });
+  
 });
 
 
@@ -118,7 +120,7 @@ function onError(error) {
 
 //Step 1: initialize communication with the platform
 var platform = new H.service.Platform({
-  apikey: window.apikey
+  apikey: window.apikey   //contenuta in test-credential.js
 });
 var defaultLayers = platform.createDefaultLayers();
 
