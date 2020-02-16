@@ -68,10 +68,10 @@ code {
 .table{
   width:100%;
   margin-bottom:1rem;
-  background-color:green;
+  background-color:transparent;
 }
 .table td,.table th{
-  padding:.5rem;
+  padding:.2rem;
   vertical-align:top;
   border-top:1px solid #dee2e6;
 }
