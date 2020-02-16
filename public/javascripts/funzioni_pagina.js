@@ -119,7 +119,7 @@ function onSuccess(result) {
  * @param  {Object} error  The error message received.
  */
 function onError(error) {
-  alert('Can\'t reach the remote server');
+  //alert('Can\'t reach the remote server');
 }
 
 //Step 1: initialize communication with the platform
