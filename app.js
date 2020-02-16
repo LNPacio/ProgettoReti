@@ -187,7 +187,7 @@ app.post('/signup', function(req,res){
 app.post('/signin', function(req,res){
 	
     var email = req.body.inputEmail;
-    var password = req.body.inputPassword;
+    var password = crypto.createHash('md5').update(req.body.inputPassword).digest("hex");
     
 	client.query('SELECT password, name, surname from utente where email = $1', [email], (err, response) => {
 		if (err) throw err;
