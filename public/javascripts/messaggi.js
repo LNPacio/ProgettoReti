@@ -275,7 +275,7 @@ $("#ao").on("keyup", function(e){
 
 $("#selezionaUtente").click(function(){
   var array = $("#myInput").val().split(", ");
-  alert(array.length);
+  if(array.length > 0){
 	//$("#divChat").show();
 	var destinat = array[1];
 	//alert(destinatario);
@@ -293,7 +293,8 @@ $("#selezionaUtente").click(function(){
 				alert("Richiesta inviata");
 		}
 		});*/
- 
+  }
+  else{alert("Inserire utente");}
 	
 });
 
