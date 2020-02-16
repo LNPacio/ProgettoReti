@@ -156,11 +156,11 @@ app.post('/signup', function(req,res){
 	
 	var name = req.body.name;
     var email = req.body.inputEmail;
-    var password = req.body.inputPassword;
+    var password = crypto.createHash('md5').update(req.body.inputPassword).digest("hex");
 	var surname = req.body.surname;
 	
-	var stringa = crypto.createHash('md5').update(password).digest("hex");
-	console.log("Password criptata: " + stringa);
+	
+	console.log("Password criptata: " + password);
 
     
     client.query('SELECT email from utente where email = $1', [email], (err, response) => {
