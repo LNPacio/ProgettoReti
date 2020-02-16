@@ -64,3 +64,8 @@ code {
   top: 20px;
   left : 50%;
 }
+
+.table{
+  background-color: red;
+  height: 50px;
+}
