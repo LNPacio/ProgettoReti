@@ -166,7 +166,8 @@ app.post('/signup', function(req,res){
 		
 		console.log(response);
 		if(response.rows.length > 0){
-			res.send('<html><body>Utente gia registrato</body></html>');
+			//res.send('<html><body>Utente gia registrato</body></html>');
+			res.send('MESSAGGIO');
 		}
 		
 		else{
