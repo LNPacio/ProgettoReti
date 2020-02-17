@@ -13,4 +13,25 @@ function controllaPassword(){
         }
         return true;
 }
-
+var name;
+var email;
+var password;
+var surname;
+$(document).ready(function(){
+	
+	//funzione per aggiungere città
+	$("#registrationButton").click(function(){
+        name = document.form_registrazione.name;
+        surname = document.form_registrazione.surname;
+        email = document.form_registrazione.email;
+        password = document.form_registrazione.password;
+		var request = $.post("/signup", {name: name, surname : surname, email : email, password : password }, function(data, status){});
+		request.done(function(msg) {
+      if(msg.errore) alert("Errore");
+      else alert(msg);
+    });
+	});
+	
+	
+  
+});
