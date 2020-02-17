@@ -26,6 +26,7 @@ $(document).ready(function(){
         surname = document.form_registrazione.surname.value;
         email = document.form_registrazione.email.value;
         password = document.form_registrazione.password.value;
+        alert("Sono in registrazione");
 		var request = $.post("/signup",function(data, status){});
 		request.done(function(msg) {
             if(msg.errore) alert("Errore");
