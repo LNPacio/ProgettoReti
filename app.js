@@ -194,7 +194,8 @@ app.post('/signin', function(req,res){
 		
 		//controllo presenza utenre
 		if(response.rows.length <= 0){
-			res.send('<html><body>Utente non registrato</body></html>');
+			//res.send('<html><body>Utente non registrato</body></html>');
+			res.send('Utente non registrato');
 		}
 		else{
 			if(response.rows[0].password == password){
