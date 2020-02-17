@@ -22,11 +22,11 @@ $(document).ready(function(){
 	
 	//funzione per aggiungere città
 	$("#registrationButton").click(function(){
-        name = document.form_registrazione.name;
+        name = document.form_registrazione.name.value;
         alert(name);
-        surname = document.form_registrazione.surname;
-        email = document.form_registrazione.email;
-        password = document.form_registrazione.password;
+        surname = document.form_registrazione.surname.value;
+        email = document.form_registrazione.email.value;
+        password = document.form_registrazione.password.value;
 		var request = $.post("/signup", {name: name, surname : surname, email : email, password : password }, function(data, status){});
 		request.done(function(msg) {
             if(msg.errore) alert("Errore");
