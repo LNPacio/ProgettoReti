@@ -23,6 +23,7 @@ $(document).ready(function(){
 	//funzione per aggiungere città
 	$("#registrationButton").click(function(){
         name = document.form_registrazione.name;
+        alert(name);
         surname = document.form_registrazione.surname;
         email = document.form_registrazione.email;
         password = document.form_registrazione.password;
