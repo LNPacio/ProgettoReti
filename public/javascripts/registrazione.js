@@ -17,6 +17,7 @@ var name;
 var email;
 var password;
 var surname;
+
 $(document).ready(function(){
 	
 	//funzione per aggiungere città
@@ -27,11 +28,8 @@ $(document).ready(function(){
         password = document.form_registrazione.password;
 		var request = $.post("/signup", {name: name, surname : surname, email : email, password : password }, function(data, status){});
 		request.done(function(msg) {
-      if(msg.errore) alert("Errore");
-      else alert(msg);
+            if(msg.errore) alert("Errore");
+            else alert(msg);
+            });
+	    });
     });
-	});
-	
-	
-  
-});
