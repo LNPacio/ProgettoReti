@@ -23,3 +23,14 @@ function onSignIn(googleUser) {
 		xhr.send('idtoken=' + id_token+'&fullname=' +profile.getName()+'&email=' +profile.getEmail()+'&givenname='+profile.getGivenName());
         
       }
+      
+$(document).ready(function(){
+	var url = window.location.href.split("?")[1];
+	//alert(url);
+	if(url == 'usernotfound'){
+		alert("Utente non registrato!");
+	}
+	if(url == 'errpassword'){
+		alert("Password errata!");
+	}
+});

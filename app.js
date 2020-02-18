@@ -166,7 +166,7 @@ app.post('/signup', function(req,res){
 		
 		console.log(response);
 		if(response.rows.length > 0){
-			res.send('<html><body>Utente gia registrato</body></html>');
+			res.redirect('/signup?emailalreadyesixt');
 		}
 		
 		else{
@@ -179,6 +179,8 @@ app.post('/signup', function(req,res){
 		} 
 	});
 	
+
+    //get  (default) Il contenuto de
 });
 
 //Login
@@ -194,7 +196,7 @@ app.post('/signin', function(req,res){
 		
 		//controllo presenza utenre
 		if(response.rows.length <= 0){
-			res.send('<html><body>Utente non registrato</body></html>');
+			res.redirect('/signin?usernotfound');
 		}
 		else{
 			if(response.rows[0].password == password){
@@ -205,7 +207,7 @@ app.post('/signin', function(req,res){
 				res.redirect('/users/home');
 			}
 			else{
-				res.send('<html><body>Password errata</body></html>');
+				res.redirect('/signin?errpassword');
 			}
 		}
 		
